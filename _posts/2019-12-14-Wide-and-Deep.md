@@ -3,7 +3,7 @@ date: 2019-12-14 18:39:28
 layout: post
 title: Wide & Deep Learning for Recommender Systems 리뷰
 subtitle: Paper Review
-description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+# description: Paper Review
 math: true
 image: https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559825145/theme16_o0seet.jpg
 optimized_image: https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559825145/theme16_o0seet.jpg
@@ -21,8 +21,6 @@ author: pyy0715
 > [Paper](https://arxiv.org/pdf/1606.07792.pdf%29/)
 >
 > [Google Blog](https://ai.googleblog.com/2016/06/wide-deep-learning-better-together-with.html)
->
-> 잘못된 정보 또는 번역이 있다면 알려주세요!
 
 ## ABSTRACT
 
