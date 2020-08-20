@@ -16,6 +16,8 @@ menu:
     url: /about
   - title: Contact
     url: /contact
+  - title: Category
+    url: /category
   - title: Feed
     url: /feed.xml
 email: pushpyy@gmail.com
