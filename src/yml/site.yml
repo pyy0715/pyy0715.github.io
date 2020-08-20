@@ -1,5 +1,5 @@
-name: Jekflix
-title: Jekflix | A blog theme for Jekyll
+name: PYY0715's Research Blog For Data Science
+title: PYY0715 | Research Blog
 description: Jekflix is a template for Jekyll inspired by Netflix and made by
   Thiago Rossener.
 tags:
@@ -18,5 +18,5 @@ menu:
     url: /contact
   - title: Feed
     url: /feed.xml
-email: youremail@test.com
-disqus_username: disqus_username
+email: pushpyy@gmail.com
+disqus_username: pyy0715

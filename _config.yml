@@ -1,6 +1,6 @@
 # Site Settings
-name: Jekflix
-title: Jekflix | A blog theme for Jekyll
+name: PYY0715's Research Blog For Data Science
+title: PYY0715 | Research Blog
 description: Jekflix is a template for Jekyll inspired by Netflix and made by
   Thiago Rossener.
 tags:
@@ -19,31 +19,28 @@ menu:
     url: /contact
   - title: Feed
     url: /feed.xml
-email: youremail@test.com
-disqus_username: disqus_username
+email: pushpyy@gmail.com
+disqus_username: pyy0715
 
 
 # Social Media Settings
 # Remove the item if you don't need it
-github_username: github_username
-facebook_username: facebook_username
-twitter_username: twitter_username
-instagram_username: instagram_username
-linkedin_username: linkedin_username
-medium_username: medium_username
+github_username: pyy0715
+facebook_username: p01034089947
+linkedin_username: young-yeon-park-67086a14b?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B2MdQ%2BaKdSmSWUIvFAnhEjw%3D%3D
 
 
 # Posts Settings
 show_time_bar: true
 show_modal_on_exit: false
 show_modal_on_finish_post: true
-two_columns_layout: true
+two_columns_layout: false
 
 
 # Advanced Settings
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site
-google_analytics: "UA-XXXXXXXX-X"
+url: "http:pyy0715.github.io" # the base hostname & protocol for your site
+google_analytics: "UA-154578110-1"
 language: "en"
 categories_folder: category
 sent_message_url: "/contact/message-sent/"
