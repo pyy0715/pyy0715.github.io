@@ -1,6 +1,6 @@
 pre {
   background: #282a36;
-  width: 100%;
+  width: 100; 
   padding: rem(20px) 0;
   color: $accentDark;
   margin: rem(30px) 0;
@@ -29,6 +29,7 @@ pre {
 
 .highlight {
   margin: rem(20px) 0;
+
 
   @include media(">=sm") {
     word-wrap: break-word;

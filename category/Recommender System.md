@@ -1,6 +1,6 @@
 ---
 layout: category
-title: Recommender Systems
-slug: RecSys
+title: Recommender System
+slug: Recommender System
 description: A category for Recommender Systems.
 ---
