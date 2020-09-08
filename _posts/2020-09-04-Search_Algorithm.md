@@ -1,7 +1,7 @@
 ---
 date: 2020-09-04 18:30:28
 layout: post
-title: [Algorithm] Linear Search & Binary Search
+title: Linear Search & Binary Search
 subtitle: Research
 # description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 math: true
