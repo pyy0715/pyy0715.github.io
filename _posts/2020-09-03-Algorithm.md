@@ -81,7 +81,7 @@ Big $O$가 알고리즘 실행 시간의 상한을 나타낸 것이라면, 반�
 
 # Next
 
-* [Algorithm] Linear Search & Binary Search
+[[Algorithm] Linear Search & Binary Search](https://pyy0715.github.io/Search_Algorithm/)
 
 * [Algorithm] Bubble Sort & Selection Sort
 
