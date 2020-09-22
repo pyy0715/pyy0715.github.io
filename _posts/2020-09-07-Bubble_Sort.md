@@ -12,7 +12,7 @@ tags:
     - Algorithm
     - Problem Solving
     - Bubble Sort
-    - Selection SOrt
+    - Selection Sort
 author: pyy0715
 ---
 

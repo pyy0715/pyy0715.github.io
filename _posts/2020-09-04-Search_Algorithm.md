@@ -115,6 +115,6 @@ $$ k=\log _{2} n $$
 
 # Next
 
-<a href="https://pyy0715.github.io/Bubble_Sort/"> [Algorithm] Bubble Sort & Selection Sort] </a>
+<a href="https://pyy0715.github.io/Bubble_Sort/"> [Algorithm] Bubble Sort & Selection Sort </a>
 
 * [Algorithm] Merge Sort
