@@ -1,7 +1,7 @@
 ---
 date: 2020-09-20 18:30:28
 layout: post
-title: Odds, Logit, Sigmoid에 대해서
+title: What is Odds, Logit and Sigmoid?
 subtitle: Research
 math: true
 image: https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559824021/theme12_e0vxlr.jpg
@@ -14,7 +14,7 @@ tags:
 author: pyy0715
 ---
 
-# Odds, Logit, Sigmoid에 대해서
+# Odds, Logit, Sigmoid
 
 
 ## Bayes Theorem
