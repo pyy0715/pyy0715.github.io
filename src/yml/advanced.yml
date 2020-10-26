@@ -1,6 +1,6 @@
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http:pyy0715.github.io" # the base hostname & protocol for your site
-google_analytics: "UA-154578110-1"
+google_analytics: "G-E021DYP29F"
 language: "en"
 categories_folder: category
 sent_message_url: "/contact/message-sent/"
