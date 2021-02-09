@@ -27,8 +27,11 @@
 
                 {% include pagination-post.html progressBar=true %}
 
-                {% include toc.html %}
-
+                <div class="toc">
+                <a href="#">&lt;Table Of Contents&gt;</a>
+                {% include toc.html html=content %}
+                </div>
+                    
                 {{ content }}
 
                 {% include pagination-post.html %}
