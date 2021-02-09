@@ -27,7 +27,12 @@
 
                 {% include pagination-post.html progressBar=true %}
 
-                {% include toc.html html=content %}
+                <!-- {% include toc.html html=content %} -->
+                <div class="see-also" style="color: rgb(0, 9, 12);">
+                    <h4>Table of Contents</h4>
+                    <hr style="text-align:left;margin-top:1px;margin-bottom:1px;">
+                    {% include toc.html html=content  sanitize=true %}
+                </div>
 
                 {{ content }}
 
@@ -40,7 +45,7 @@
                     <ul>
                         {% assign next_posts = site.posts | where_exp:"post","post.is_generated != true" | where_exp:"post","post.path != page.path" %}
                         {% assign shuffled_array = next_posts | shuffle %}
-                        {% for post in shuffled_array limit:3 %}
+                        {% for post in shuffled_array limit:2 %}
                             <li>
                                 <a href="{{ post.url | prepend: site.baseurl }}">
                                     {% if post.optimized_image %}
