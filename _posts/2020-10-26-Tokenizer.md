@@ -5,8 +5,8 @@ title: HuggingFace Tokenizer Tutorial
 subtitle: Research
 # description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 math: true
-image: https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559824822/theme15_oqsl4z.jpg
-optimized_image: https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559824822/theme15_oqsl4z.jpg
+image: ../assets/img/uploads/corona.png
+optimized_image: ../assets/img/uploads/corona.png
 category: NLP
 tags:
     - HuggingFace
@@ -22,7 +22,7 @@ HuggingFace는 Transformer, Bert등의 최신 NLP 기술들을 많은 이들이 
 
 이번 포스트에는 HuggingFace에서 제공하는 [Tokenizers](https://github.com/huggingface/tokenizers)를 통해 각 기능을 살펴보겠습니다.
 
-## What is Tokenizer?
+# What is Tokenizer?
 
 우선 Token, Tokenizer 같은 단어들에 혼동을 피하기 위해서 의미를 정리할 필요가 있습니다.
 - **Token**은 주어진 Corpus에서 의미있는 단위로 정의되는 문자로 정의할 수 있습니다.
