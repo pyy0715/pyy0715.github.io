@@ -1,5 +1,5 @@
 ---
-date: 2020-10-25 18:39:28
+date: 2021-02-09 18:39:28
 layout: post
 title: HuggingFace Tokenizer Tutorial
 subtitle: Research
@@ -13,19 +13,27 @@ tags:
     - Tokenizer 
 author: pyy0715
 ---
-
 # HuggingFace
 
+![img](https://pbs.twimg.com/media/EUngU6UXQAISNL_.jpg:large)
 지난 2년간은 NLP에서 황금기라 불리울 만큼 많은 발전이 있었습니다. 그 과정에서 오픈 소스에 가장 크게 기여한 곳은 바로 [HuggingFace](https://huggingface.co/)라는 회사입니다. 
 HuggingFace는 Transformer, Bert등의 최신 NLP 기술들을 많은 이들이 쉅게 사용할 수 있도록 기술의 민주화를 목표로 하고 있습니다. 
 > We’re on a journey to advance and democratize NLP for everyone. Along the way, we contribute to the development of technology for the better.
 
 이번 포스트에는 HuggingFace에서 제공하는 [Tokenizers](https://github.com/huggingface/tokenizers)를 통해 각 기능을 살펴보겠습니다.
 
+## What is Tokenizer?
+
+우선 Token, Tokenizer 같은 단어들에 혼동을 피하기 위해서 의미를 정리할 필요가 있습니다.
+- **Token**은 주어진 Corpus에서 의미있는 단위로 정의되는 문자로 정의할 수 있습니다.
+    의미있는 단위란 문장, 단어나 어절 등이 될 수 있습니다.
+
+- **Tokenizer**은 주어진 Corpus를 기준에 맞춰서 Token들로 분리하는 작업을 뜻합니다.
+    기준은 사용자가 지정하거나 사전에 기반하여 정할 수 있습니다.
+    이러한 기준은 *사전 기반과 Subword기반* 으로 구분될 수 있으며, 각자 목적에 맞게 사용됩니다.
+
 
 # Tokenizers Introduction
-HuggingFace의 Tokenizers의 주요 특징은 아래와 같습니다.
-
 - 오늘날 가장 많이 사용되는 Tokenizer를 사용하여 새로운 어휘를 훈련하고, Tokenize를 수행할 수 있습니다.
 - Rust로 구현되있기 때문에 매우 빠릅니다.
 - 사용하기 쉬우면서도 매우 다재다능합니다.
@@ -33,18 +41,20 @@ HuggingFace의 Tokenizers의 주요 특징은 아래와 같습니다.
 - 주어진 토큰에 해당하는 원래 문장의 일부를 항상 가져올 수 있습니다.
 - 전처리에 관한 모든것을 수행할 수 있습니다(Truncate, Pad, add the special tokens)
 
-Tokenizer 종류 및 특징
+# Kind of Tokenizers
 
-|           tokenizer(class name)           | unit |  trainer  |              normalizer              |    boundary symbol    |
+|           Tokenizer(class name)           | Unit |  Method  |              Normalizer              |    Symbol    |
 |:-----------------------------------------:|:----:|:---------:|:------------------------------------:|:---------------------:|
-|   Byte-level BPE (ByteLeveBPETokenizer)   | byte |    BPE    |         [Unicode, Lowercase]         |       어절 앞 `Ġ`     |
-|   Character-level BPE (CharBPETokenizer)  | char |    BPE    | [Unicode, BertNormalizer, Lowercase] |      어절 뒤 `</w>`   |
-| SentencePiece (SentencePieceBPETokenizer) | char |    BPE    |                 NFKC                 |       어절 앞 `_`     |
-|  Bert tokenizer (BertWordPieceTokenizer)  | char | WordPiece |            BertNormalizer            | subword 앞에 `##` 부착|
+|  Bert tokenizer<br />(BertWordPieceTokenizer)  | char | WordPiece |            BertNormalizer            | subword 앞에 `##` 부착|
+| SentencePiece<br />(SentencePieceBPETokenizer) | char |    BPE    |                 NFKC                 |       어절 앞 `_`     |
+|   Byte-level BPE<br />(ByteLeveBPETokenizer)   | byte |    BPE    |         [Unicode, Lowercase]         |       어절 앞 `Ġ`     |
+|   Character-level BPE<br />(CharBPETokenizer)  | char |    BPE    | [Unicode, BertNormalizer, Lowercase] |      어절 뒤 `</w>`   |
 
-## ByteLevelTokenizer
+# Code Pratice
 
+## Preparations
 
+튜토리얼을 진행하기 앞서, 간단한 문장들로 구성된 텍스트 파일을 생성하겠습니다.
 ```python
 sentences = (
     'Joe waited for the train.',
@@ -54,7 +64,6 @@ sentences = (
 )
 ```
 
-
 ```python
 with open('sample_corpus.txt', 'w') as f:
     for data in sentences:
@@ -62,7 +71,7 @@ with open('sample_corpus.txt', 'w') as f:
 ```
 
 ## BertWordPieceTokenizer
-
+WordPiece는 BPE와 같이 가장 많이 등장한 쌍을 병합하는 것이 아니라, 병합되었을 때 corpus의 우도를 가장 높이는 쌍을 병합하게 됩니다.
 
 ```python
 from tokenizers import BertWordPieceTokenizer
@@ -98,9 +107,6 @@ bert_wordpiece_tokenizer.train(
 vocab = bert_wordpiece_tokenizer.get_vocab()
 sorted(vocab, key=lambda x: vocab[x])
 ```
-
-
-
 
     ['[PAD]',
      '[UNK]',
@@ -142,6 +148,7 @@ sorted(vocab, key=lambda x: vocab[x])
      '##m',
      '##k']
 
+사전에 위에서 추가한 special token들이 잘 포함되있는 것을 확인할 수 있습니다.
 
 
 ### Encode and Encode_Batch
@@ -156,6 +163,9 @@ print(encoding.ids)
     ['i', 't', '##a', '##k', '##e', 't', '##h', '##e', 'b', '##u', '##s']
     [12, 21, 25, 38, 27, 21, 33, 27, 7, 35, 36]
 
+위와 같은 하나의 문장을 Encoding하는 것은 `encode` method를 통해서 확인할 수 있지만, 수백개의 문장을 Encoding해야 한다면 어떻게 수행할 수 있을까요?
+
+`encode_batch` method를 사용한다면, 아주 빠른 속도로 batch 단위의 문장들로 Encoding 할 수 있습니다.
 
 
 ```python
@@ -198,13 +208,13 @@ for i in range(len(sentences)):
     Ids: [12, 15, 29, 29, 38, 27, 34, 10, 29, 31, 16, 25, 31, 32, 6, 30, 34, 20, 25, 37, 25, 30, 26, 33, 25, 6, 26, 21, 33, 27, 7, 35, 36, 20, 26, 25, 26, 28, 29, 30]
 
 
-`vocab_size`를 늘리면 더 많은 subwords가 vocab으로 학습됩니다.
+이에 따른 결과를 통해서 좀 더 파라미터를 자세히 살펴보겠습니다. 당연히 `vocab_size`를 늘리면 더 많은 subwords가 vocab으로 학습됩니다.
 
 
 ```python
 bert_wordpiece_tokenizer.train(
     files = './sample_corpus.txt',
-    vocab_size = 100,
+    vocab_size = 100, #from 30 to 100
     min_frequency = 1,
     limit_alphabet = 1000,
     initial_alphabet = [],
@@ -248,30 +258,31 @@ for i in range(len(sentences)):
 
 ### Model Save and Load 
 
+`save_model`을 이용하여 {directory}/{name}-vocab.txt 파일로 vocab 을 저장합니다.
+tokenizer 종류에 따라서 저장되는 결과들은 달라집니다.
 
 ```python
+# save tokenizer
 bert_wordpiece_tokenizer.save_model(
-    directory='./vocab/',
+    directory='./tokenizer/',
     name = 'example_bertwordpiece'
 )
 ```
 
+    ['./tokenizer/example_bertwordpiece-vocab.txt']
 
-
-
-    ['./vocab/example_bertwordpiece-vocab.txt']
-
-
-
+tokenizer를 다시 불러오기 위해서는 저장된 vocab파일만 가져오기만 하면 됩니다.
 
 ```python
+# load tokenizer
 bert_wordpiece_tokenizer = BertWordPieceTokenizer(
-    vocab_file = './vocab/example_bertwordpiece-vocab.txt'
+    vocab_file = './tokenizer/example_bertwordpiece-vocab.txt'
 )
 ```
 
 ### Special Tokens
 
+encode를 수행할 때, `add_special_tokens`에 따라서 speical_tokens를 출력할지 결정할 수 있습니다.
 
 ```python
 bert_wordpiece_tokenizer.encode('I looked for Mary and Samantha at the bus station').tokens
@@ -316,7 +327,7 @@ bert_wordpiece_tokenizer.encode('I looked for Mary and Samantha at the bus stati
 
 
 
-BERT는 두 문장을 `[SEP]`으로 구분하여, Pair기능을 제공합니다.
+또한 BERT는 두 문장을 `[SEP]`으로 구분하기 때문에, Pair기능을 제공합니다.
 
 
 ```python
@@ -346,19 +357,20 @@ bert_wordpiece_tokenizer.encode(
 
 
 
-### Dictionary 추가
+### Add Tokens
 
+학습된 Tokenizer에서 Token을 추가하기 위해서는 `add_tokens`를 이용해서 직접 추가할 수 있습니다.
 
 ```python
 bert_wordpiece_tokenizer.add_tokens(['airplane'])
 
 bert_wordpiece_tokenizer.save_model(
-    directory='./vocab/',
+    directory='./tokenizer/',
     name = 'example_bertwordpiece2'
 )
 
 bert_wordpiece_tokenizer = BertWordPieceTokenizer(
-    vocab_file = './vocab/example_bertwordpiece2-vocab.txt'
+    vocab_file = './tokenizer/example_bertwordpiece2-vocab.txt'
 )
 ```
 
@@ -372,22 +384,20 @@ bert_wordpiece_tokenizer.encode('Joe waited for the airplane.').tokens
 
     ['[CLS]', 'joe', 'waited', 'for', 'the', '[UNK]', '.', '[SEP]']
 
+하지만 위의 예제와 같이 저장이 제대로 되지 않습니다.
 
-
-add_tokens에서 기능을 제공하지만 아직 저장이 제대로 되지 않습니다.
-
-따라서 vocab파일에 직접 추가해주어야 합니다.
+따라서 아래처럼 vocab파일에 직접 추가해주어야 합니다.
 
 
 ```python
-with open('./vocab/example_bertwordpiece2-vocab.txt', 'a') as f:
+with open('./tokenizer/example_bertwordpiece2-vocab.txt', 'a') as f:
         f.write('airplane')
 ```
 
 
 ```python
 bert_wordpiece_tokenizer = BertWordPieceTokenizer(
-    vocab_file = './vocab/example_bertwordpiece2-vocab.txt'
+    vocab_file = './tokenizer/example_bertwordpiece2-vocab.txt'
 )
 ```
 
@@ -401,6 +411,21 @@ bert_wordpiece_tokenizer.encode('Joe waited for the airplane.').tokens
 
     ['[CLS]', 'joe', 'waited', 'for', 'the', 'airplane', '.', '[SEP]']
 
+### 학습된 Tokenizer를 transformers에서 이용하기
+
+```python
+from transformers import BertTokenizer
+
+transforms_bert_tokenizer = BertTokenizer(
+    vocab_file = './tokenizer/example_bertwordpiece2-vocab.txt'
+)
+
+sentence = 'Mary waited for the airplane.'
+
+print(f'Transformers: {transforms_bert_tokenizer.tokenize(sentence)}')
+```
+
+    Transformers: ['mary', 'waited', 'for', 'the', 'airplane', '.']
 
 
 ## SentencePieceBPE Tokenizer
@@ -416,7 +441,7 @@ sentencepiece_tokenizer = SentencePieceBPETokenizer(
 )
 ```
 
-add_prefix_space=True이면, 문장의 맨 앞 단어에도 공백을 부여합니다.
+`add_prefix_space`가 True이면, 문장의 맨 앞 단어에도 공백을 부여합니다.
 False일 경우, 공백없이 시작하는 단어에는 `_`를 부여하지 않습니다.
 
 
@@ -528,20 +553,19 @@ sentencepiece_tokenizer.save_model('./vocab', 'example_sentencepiece')
 
 
 
-    ['./vocab/example_sentencepiece-vocab.json',
-     './vocab/example_sentencepiece-merges.txt']
+    ['./tokenizer/example_sentencepiece-vocab.json',
+     './tokenizer/example_sentencepiece-merges.txt']
 
 
 
 BPE기반의 Tokenizer들은 vocab.json, merges.txt 두 개의 파일을 저장합니다.
-
 따라서 학습된 Tokenizer들을 이용하기 위해서 두 개의 파일을 모두 로드해야 합니다.
 
 
 ```python
 sentencepiece_tokenizer = SentencePieceBPETokenizer(
-    vocab_file = './vocab/example_sentencepiece-vocab.json',
-    merges_file = './vocab/example_sentencepiece-merges.txt'
+    vocab_file = './tokenizer/example_sentencepiece-vocab.json',
+    merges_file = './tokenizer/example_sentencepiece-merges.txt'
 )
 ```
 
@@ -573,97 +597,6 @@ sentencepiece_tokenizer.encode('Joe waited for the airplane.').tokens
      'an',
      'e',
      '.']
-
-
-
-## CharBPETokenizer
-
-Character-level BPE는 단어 수준에서 BPE를 이용하여 subwords를 학습하며, 단어에 suffix로 `</w>`를 부착하여 공백을 표현합니다.
-
-
-```python
-from tokenizers import CharBPETokenizer
-
-charbpe_tokenizer = CharBPETokenizer(
-    suffix = '</w>',
-    split_on_whitespace_only=True
-)
-```
-
-charBPE는 기본적으로 공백과 구두점을 이용하여 텍스트를 분리합니다. 
-
-그렇기 때문에 문장이 `.`으로 끝나는 경우를 공백으로 나타내지 않기 위해 split_on_white_space_only옵션을 True로 설정해줍니다.
-
-
-```python
-charbpe_tokenizer.train(
-    files = './sample_corpus.txt',
-    vocab_size = 50,
-    min_frequency = 1,
-)
-```
-
-
-```python
-charbpe_tokenizer.encode('Joe waited for the train.').tokens
-```
-
-
-
-
-    ['J',
-     'o',
-     'e</w>',
-     'w',
-     'ai',
-     't',
-     'ed</w>',
-     'fo',
-     'r</w>',
-     'the</w>',
-     't',
-     'rai',
-     'n',
-     '.</w>']
-
-
-
-split_on_white_space_only옵션을 False로 설정했을 경우, 아래의 예문 안에 `.`앞에서 공백으로 표현합니다.
-
-
-```python
-charbpe_tokenizer = CharBPETokenizer(
-    suffix = '</w>',
-)
-
-charbpe_tokenizer.train(
-    files = './sample_corpus.txt',
-    vocab_size = 50,
-    min_frequency = 1,
-)
-
-charbpe_tokenizer.encode('Joe waited for the train.').tokens
-```
-
-
-
-
-    ['J',
-     'o',
-     'e</w>',
-     'w',
-     'ai',
-     't',
-     'ed</w>',
-     'fo',
-     'r</w>',
-     'the</w>',
-     't',
-     'rai',
-     'n</w>',
-     '.</w>']
-
-
 
 ## ByteLevelTokenizer
 
@@ -707,22 +640,22 @@ bytebpe_tokenizer.encode('Joe waited for the train.').tokens
     ['J',
      'o',
      'e',
-     'Ġ',
+     'Ġ', - prefix
      'w',
      'a',
      'i',
      't',
      'e',
      'd',
-     'Ġ',
+     'Ġ', - prefix
      'f',
      'o',
      'r',
-     'Ġ',
+     'Ġ', - prefix
      't',
      'h',
      'e',
-     'Ġ',
+     'Ġ', - prefix
      't',
      'r',
      'a',
@@ -730,10 +663,87 @@ bytebpe_tokenizer.encode('Joe waited for the train.').tokens
      'n',
      '.']
 
+## CharBPETokenizer
+
+Character-level BPE는 단어 수준에서 BPE를 이용하여 subwords를 학습하며, 단어에 suffix로 `</w>`를 부착하여 공백을 표현합니다.
 
 
-### Tokenizer 결과 
+```python
+from tokenizers import CharBPETokenizer
 
+charbpe_tokenizer = CharBPETokenizer(
+    suffix = '</w>',
+    split_on_whitespace_only=True
+)
+```
+
+CharBPETokenizer는 기본적으로 공백과 구두점을 이용하여 텍스트를 분리합니다. 
+그렇기 때문에 문장이 `.`으로 끝나는 경우를 공백으로 나타내지 않기 위해 `split_on_white_space_only`옵션을 True로 설정해줍니다.
+
+```python
+charbpe_tokenizer.train(
+    files = './sample_corpus.txt',
+    vocab_size = 50,
+    min_frequency = 1,
+)
+```
+
+```python
+charbpe_tokenizer.encode('Joe waited for the train.').tokens
+```
+    ['J',
+     'o',
+     'e</w>', - suffix
+     'w',
+     'ai',
+     't',
+     'ed</w>', - suffix
+     'fo',
+     'r</w>', - suffix
+     'the</w>', - suffix
+     't',
+     'rai',
+     'n',
+     '.</w>'- suffix
+     ] 
+
+`split_on_white_space_only`옵션을 False로 설정했을 경우, 아래의 예문 안에 `.`앞에서 공백으로 표현합니다.
+
+
+```python
+charbpe_tokenizer = CharBPETokenizer(
+    suffix = '</w>',
+)
+
+charbpe_tokenizer.train(
+    files = './sample_corpus.txt',
+    vocab_size = 50,
+    min_frequency = 1,
+)
+
+charbpe_tokenizer.encode('Joe waited for the train.').tokens
+```
+    ['J',
+     'o',
+     'e</w>', - suffix
+     'w',
+     'ai',
+     't',
+     'ed</w>', - suffix
+     'fo',
+     'r</w>', - suffix
+     'the</w>', - suffix
+     't',
+     'rai',
+     'n</w>', - suffix
+     '.</w>' - suffix
+     ]
+
+
+
+## Tokenizer Result
+
+위에서 수행한 Tokenizer들을 하나의 문장을 통해서 그에 따른 결과들을 살펴보겠습니다.
 
 ```python
 sentence = 'Joe waited for the airplane.'
@@ -761,22 +771,4 @@ for tokenizer in tokenizers:
     
     ByteLevelBPETokenizer
     tokens = ['J', 'o', 'e', 'Ġ', 'w', 'a', 'i', 't', 'e', 'd', 'Ġ', 'f', 'o', 'r', 'Ġ', 't', 'h', 'e', 'Ġ', 'a', 'i', 'r', 'p', 'l', 'a', 'n', 'e', '.']
-
-
-# 학습된 Tokenizer를 transformers에서 이용하기
-
-
-```python
-from transformers import BertTokenizer
-
-transforms_bert_tokenizer = BertTokenizer(
-    vocab_file = './vocab/example_bertwordpiece2-vocab.txt'
-)
-
-sentence = 'Mary waited for the airplane.'
-
-print(f'Transformers: {transforms_bert_tokenizer.tokenize(sentence)}')
-```
-
-    Transformers: ['mary', 'waited', 'for', 'the', 'airplane', '.']
 
