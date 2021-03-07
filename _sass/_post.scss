@@ -380,6 +380,29 @@
   }
 }
 
+/* Visible Desktop, Mobile */
+
+.div-only-mobile {
+  display: none;
+}
+
+.div-no-mobile {
+  display: block;
+}
+
+@media screen and (max-width: 849px) {
+
+  .div-no-mobile {
+    display: none
+  }
+
+  .div-only-mobile {
+    display: block;
+  }
+
+}
+
+
 /* Progress bar */
 
 .progress-bar {
