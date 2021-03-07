@@ -2,7 +2,7 @@
 date: 2021-02-09 18:39:28
 layout: post
 title: HuggingFace Tokenizer Tutorial
-subtitle: Research
+subtitle: Tutorial
 # description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 math: true
 image: ../assets/img/uploads/corona.png

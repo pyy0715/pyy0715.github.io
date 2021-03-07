@@ -344,13 +344,13 @@
 
 .see-also {
   position: fixed;
-  background-color: #fff;
-  right: 0;
+  // background-color: #fff;
+  right: -1;
   margin: 4px 0 0 0;
   float: right;
-  padding: 16px 15px 0 0;
-  width: 400px;
-  height: 60px;
+  padding: 15px 16px 0 0;
+  width: 25%;
+  // height: 10%;
   z-index: 1;
   /* Stay on top */
   top: 0;
@@ -358,16 +358,16 @@
 
   ul {
     list-style: none;
-    margin: 4%;
+    margin: 1%;
     padding-left: 10px;
     line-height: 20px;
     li {
-      padding: 2px 8px 2px 0;
+      padding: .5px 8px .5px 0;
       width: 100%;
       a {
         color: #2089C4;
         display: inline-block;
-        font-size: 12px;
+        font-size: 11px;
         font-weight: normal;
         padding: 5px 10px 5px 10px;
       }
