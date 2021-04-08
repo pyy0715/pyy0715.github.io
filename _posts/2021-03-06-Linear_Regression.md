@@ -2,11 +2,11 @@
 date: 2021-03-06 18:50:28
 layout: post
 title: Linear Regression 톺아보기
-subtitle: Tutorial
+subtitle: Research
 # description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 math: true
-image: https://images.unsplash.com/photo-1576021159913-b260e9608fd6?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80
-optimized_image: <img src="https://whale-store.pstatic.net/20191018_185/1571377428676eshFs_JPEG/whale_img02.jpg?type=f120_76"  width="120" height="60">
+image: https://images.unsplash.com/photo-1617201835753-86a4c2a8c457?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80
+optimized_image: https://images.unsplash.com/photo-1617201835753-86a4c2a8c457?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80
 category: Machine Learning
 tags:
     - Linear Regression
