@@ -6,7 +6,6 @@ subtitle: Paper Review
 # description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 math: true
 image: https://images.unsplash.com/photo-1615224572819-61e7e440a7e5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=624&q=80
-optimized_image: <img_src="https://images.unsplash.com/photo-1615224572819-61e7e440a7e5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=624&q=80" width="380">
 category: Recommender System
 tags:
     - Session-Based
