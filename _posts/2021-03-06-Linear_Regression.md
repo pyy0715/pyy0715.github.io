@@ -5,7 +5,8 @@ title: Linear Regression 톺아보기
 subtitle: Research
 # description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 math: true
-image: https://res.cloudinary.com/dtttkj2mc/image/upload/v1601003475/post/tips/etc/newpost_znc81q.png
+image: https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559824306/theme13_dshbqx.jpg
+optimized_image: https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559824306/theme13_dshbqx.jpg
 category: Machine Learning
 tags:
     - Linear Regression
