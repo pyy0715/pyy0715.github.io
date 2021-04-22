@@ -23,7 +23,7 @@ author: pyy0715
 
 - 이에 대한 해결법으로 RNN 기반의 session-based 추천 모델을 제안
 
-# Introduction
+# 1 Introduction
 지금까지 추천시스템에서 사용되었던 기본적인 방법들은 아래와 같다.
 
 - `Factor Models`
@@ -52,9 +52,9 @@ E-commerce의 추천시스템은 왜 Session단위로 이루어져야 하는지�
 - **추천 Task를 위해 새로운 Ranking Loss는 무엇을 사용하였는지?**
 - **click-stream 데이터 또한 상당히 크기 때문에 훈련 시간과 확장성을 어떻게 고려하였는지?**
 
-# Related Work
+# 2 Related Work
 
-## Session-Based Recommendation
+## 2.1 Session-Based Recommendation
 
 기존 방법들의 경우, 사용자의 마지막 클릭 아이템을 기준으로 유사한 아이템을 찾기 때문에 과거 클릭 정보를 무시하게 되는 문제점이 있다.
 
@@ -72,14 +72,14 @@ E-commerce의 추천시스템은 왜 Session단위로 이루어져야 하는지�
 
     따라서 어떤 session은 `session으로서의 아이템`들의 평균으로 표현될 수 있다.하지만 session간에 순서를 고려하지 않는다.
 
-## Deep Learning In Recommendation
+## 2.2 Deep Learning In Recommendation
 
 Restricted Boltzmann Machines (RBM)은 Collaborative Filtering 모델들에서 유저와 이템의 Interaction을 바탕으로 우수한 성능을 나타내었습니다.
 
 최근 Deep Model들은 음악이나 이미지같이 구조화되지 않은 컨텐츠에서 feature를 추출하기 위해 사용되어졌으며, 전통적인 CF들과 함께 사용되어져왔습니다.
 
 
-# Recommendation with RNNs
+# 3 Recommendation with RNNs
 
 RNN은 기본적으로 variable-length sequence한 데이터를 처리하도록 설계되었습니다.
 RNN과 전통적인 피드-포워드 신경망 모델들의 차이는 신경망을 구성하는 unit내의 hidden state의 존재 유무입니다.
@@ -87,7 +87,7 @@ RNN과 전통적인 피드-포워드 신경망 모델들의 차이는 신경망�
 GRU는 vanishing gradient problem을 다루기 위해 설계되어진 정교한 RNN 모델입니다.
 ![img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=http%3A%2F%2Fcfile7.uf.tistory.com%2Fimage%2F99F0EC3E5BD5F6460255CF)
 
-## Customizing the GRU Model
+## 3.1 Customizing the GRU Model
 
 Session 단위의 추천을 위해 GRU기반의 모델을 사용하였으며, 모델에 대한 입출력은 아래와 같습니다.
 
@@ -112,7 +112,7 @@ session의 state는 `the item of the actual event or the events in the session`�
 
 GRU네트워크의 핵심은 마지막 gru 레이어와 output 레이어 사이에 추가한 feedforward layer 입니다. GRU 레이어들을 여러개 쌓을 수록 성능이 향상되었다고 실험 결과에서 말하고 있습니다.
 
-## 3.1.1 SESSION-PARALLEL MINI-BATCHES
+### 3.1.1 SESSION-PARALLEL MINI-BATCHES
 NLP영역에서의 RNN은 문장 내 단어들의 window_size를 이동하면서  sequential mini-batch 기법을 주로 사용합니다. 즉, 설정 사이즈에 맞춰서 부분적으로 예측합니다. 
 
 하지만 이러한 기법은 추천 Task에는 적합하지 않았는데 그 이유는 아래와 같습니다.
@@ -129,7 +129,7 @@ NLP영역에서의 RNN은 문장 내 단어들의 window_size를 이동하면서
 
 만약 한 session이 종료되면 사용 가능한 다음 session이 배치됩니다. Session들은 독립적이라고 가정하기 때문에 병렬적으로 구성할 수 있습니다.
 
-## 3.1.2 Sampling On the Output
+### 3.1.2 Sampling On the Output
 
 아이템의 수가 너무 많다는 것을 고려하면, 매번 각 스텝에서 모든 아이템에 대한 선호 확률을 계산하는 것은 사용할 수 없습니다. 따라서 output으로 나올 아이템을 sampling하고, 아이템에 대한 small subset을 구성함으로써 선호 확률을 구하였습니다.
 
@@ -143,7 +143,7 @@ missing event에 대한 자연스러운 해석은 사용자가 아이템의 존�
 
 
 
-## 3.1.3 RANKING LOSS
+### 3.1.3 RANKING LOSS
 업데이트 예정
 
 # 4 EXPERIMENTS
