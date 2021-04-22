@@ -8,8 +8,8 @@ tags:
   - jekyll
   - theme
   - netlify
-show_hero: true
-paginate: 13
+show_hero: false
+paginate: 12
 menu:
   - title: Home
     url: /
