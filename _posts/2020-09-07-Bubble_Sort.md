@@ -7,10 +7,8 @@ subtitle: Research
 math: true
 image: https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559824575/theme14_gi2ypv.jpg
 optimized_image: https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559824575/theme14_gi2ypv.jpg
-category: Algorithm
+category: Programming
 tags:
-    - Algorithm
-    - Problem Solving
     - Bubble Sort
     - Selection Sort
 author: pyy0715

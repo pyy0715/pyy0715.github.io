@@ -7,11 +7,10 @@ subtitle: Tutorial
 math: true
 image: https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559822137/theme11_vei7iw.jpg
 optimized_image: https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559822137/theme11_vei7iw.jpg
-category: Image
+category: Vision
 tags:
     - Albumentation
     - Augmentation
-    - Image
     - CNN
 author: pyy0715
 ---
