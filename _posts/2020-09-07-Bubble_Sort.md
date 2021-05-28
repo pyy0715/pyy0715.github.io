@@ -2,7 +2,7 @@
 date: 2020-09-07 18:30:28
 layout: post
 title: Bubble Sort & Selection Sort
-subtitle: Research
+subtitle: Concept
 # description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 math: true
 image: https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559824575/theme14_gi2ypv.jpg
