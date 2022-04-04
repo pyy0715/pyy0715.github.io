@@ -1,5 +1,5 @@
 ---
-date: 2022-04-04 18:50:28
+date: 2022-04-03 18:50:28
 layout: post
 title: Product Quantization with Faiss
 subtitle: Research
