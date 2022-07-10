@@ -28,9 +28,10 @@ author: pyy0715
 따라서 ANN에서는 벡터를 어떠한 방식으로 quantization을 수행하여 codebook을 구성할 것인지, 어떠한 distance method를 사용하여 유사도를 탐색할 것인지가 핵심이라고 할 수 있습니다.
 
 ANN은 다양한 기업들에서 오픈소스로 공개되어있습니다. 그 중 대표적으로 알려져 있는 알고리즘은 아래 3가지입니다.
- - Faiss(Facebook)
- - ScaNN(Google)
- - Annoy(Spotify)
+
+- Faiss(Facebook)
+- ScaNN(Google)
+- Annoy(Spotify)
 
 *개인적으로는 Faiss가 GPU를 활용해서 연산속도를 개선시킬 수 있다는 점에서 가장 많이 활용되고 있는 것으로 보입니다.*
 
@@ -38,7 +39,7 @@ ANN은 다양한 기업들에서 오픈소스로 공개되어있습니다. 그 �
 
 ## 2. Quantization
 
-Quantization은 예전부터 신호처리 분야에서 연구되던 분야로 간단하게는 표현되는 정보의 양을 줄이는 방법이라고 할 수 있습니다. 이에 대해서는 https://pyy0715.github.io/Audio/#quantization 에 설명되어 있으니 참고 부탁드립니다.
+Quantization은 예전부터 신호처리 분야에서 연구되던 분야로 간단하게는 표현되는 정보의 양을 줄이는 방법이라고 할 수 있습니다. 이에 대해서는 <https://pyy0715.github.io/Audio/#quantization> 에 설명되어 있으니 참고 부탁드립니다.
 
 ## 3. Exhaustive Search with Approximate Distances
 
@@ -60,13 +61,13 @@ Faiss는 ANN에서 사용되는 tree-based index 대신 k-nn기반의 product qu
 
 ![alt](http://mccormickml.com/assets/ProductQuantizer/kmeans_clustering.png)
 
-즉 위의 그림에서 노란색 테이블의 column은 각 cluster를 의미하고, row는 cluster들의 centorid를 나타낸다고 볼 수 있습니다. 
+즉 위의 그림에서 노란색 테이블의 column은 각 cluster를 의미하고, row는 cluster들의 centorid를 나타낸다고 볼 수 있습니다.
 
-sub vector가 있을 때, 가장 가까운 centroid를 찾아 sub_vector를 centroid의 id로 대체합니다. 이는 모든 vector에 대해서 우리는 연속적인 8개의 centroid ids들로 다시 나타낼 수 있음을 말합니다. 
+sub vector가 있을 때, 가장 가까운 centroid를 찾아 sub_vector를 centroid의 id로 대체합니다. 이는 모든 vector에 대해서 우리는 연속적인 8개의 centroid ids들로 다시 나타낼 수 있음을 말합니다.
 
 조금 더 자세히 설명하면 subvector를 centorid의 id만으로 표현함으로써, floating point 32bit를 이산화시켜 8bit로 나타낼 수 있음을 말합니다. 이는 표현되는 정보의 양을 줄임으로써 데이터를 효과적으로 압축시킬 수 있습니다.
 
-![alt](https://datacrew.tech/wp-content/uploads/2020/03/image-5.png)
+![image](https://user-images.githubusercontent.com/47301926/178133751-4b623f4a-ad56-4d3f-bf49-ab29f7ff2e96.png)
 
 ## 5. Nearest Neighbor Search
 
@@ -74,7 +75,7 @@ vector를 centroid ids로 압축할 수 있지만, 이를 통해 거리를 계�
 
 Faiss에서 nearest neighbor search를 수행하는 과정은 look-up 테이블을 사용하여 `exhaustive search`방식으로 동작합니다.
 
-먼저 nearest neighbors를 찾기 위해 query vector가 있는 상황을 가정해봅시다. 단순하게는 centroid ids들을 결합하여 다시 vector를 reconstruct하여 거리 계산을 할 수는 있습니다만, 스마트한 방법은 아닙니다. 
+먼저 nearest neighbors를 찾기 위해 query vector가 있는 상황을 가정해봅시다. 단순하게는 centroid ids들을 결합하여 다시 vector를 reconstruct하여 거리 계산을 할 수는 있습니다만, 스마트한 방법은 아닙니다.
 
 vector에 대한 각각의 sub vector와 cluster의 centriods들에 대해 L2 distance를 계산하여 subvector distance table을 구축합니다. 테이블의 크기는 [256 * 8]이 될 것입니다. distance table은 연산량을 줄이면서도 50K database vectors들과의 distance를 근사합니다.
 
@@ -86,4 +87,5 @@ $$db vector = [\text{lookup-id1} + \text{lookup-id2} + \text{lookup-id3}, ... + 
 이러한 방식은 vector를 다시 reconstruct하여 거리를 계산하는 것과 동일한 결과를 제공하지만 더 낮은 계산 비용을 요구합니다. 이후 단계는 거리를 계산하고 정렬하는 일반적인 neigbor search와 같은 방식으로 이루어집니다.
 
 # Reference
+
 [product-quantizer-tutorial](https://mccormickml.com/2017/10/13/product-quantizer-tutorial-part-1/)
