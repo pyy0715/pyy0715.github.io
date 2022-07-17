@@ -7,7 +7,7 @@ subtitle: Concept
 math: true
 image: https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559824575/theme14_gi2ypv.jpg
 optimized_image: https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559824575/theme14_gi2ypv.jpg
-category: Programming
+category: Algorithm
 tags:
     - Bubble Sort
     - Selection Sort
@@ -15,7 +15,6 @@ author: pyy0715
 ---
 
 이 글은 Edwith에서 제공하는 [모두를 위한 컴퓨터 과학 (CS50 2019)](https://www.edwith.org/boostcourse-cs-050/joinLectures/41307)를 수강하고 정리한 글입니다.
-
 
 # Bubble Sort
 
@@ -37,7 +36,7 @@ author: pyy0715
 
 버블 정렬을 한번 시행하면 `[1,5,2,4,3,6]`의 순서로 정렬된 것을 확인할 수 있습니다. 아직 완전히 정렬되지 않은 배열이지만 6은 이미 제 자리에 와있습니다.
 
-정렬할 데이터가 많지 않고 한 번 정렬해놓은 데이터를 여러번 검색하려 할 때는 버블 정렬이 효율적으로 사용될 수 있습니다. 
+정렬할 데이터가 많지 않고 한 번 정렬해놓은 데이터를 여러번 검색하려 할 때는 버블 정렬이 효율적으로 사용될 수 있습니다.
 
 ## Code
 
@@ -56,11 +55,11 @@ def Bubble_Sort(arr):
          if arr[j]>arr[j+1]:
             arr[j], arr[j+1] = arr[j+1], arr[j]
    return arr
-``` 
+```
 
 ## Time Complexity
 
-**$n$개의 원소에 대해서 버블 정렬을 한번 수행할 때마다 $n$번쨰의 원소가 제 자리를 찾게 됩니다.** 그렇기 때문에 다음 정렬에서는 $n-1$개의 원소를 정렬해 주면 됩니다. 
+**$n$개의 원소에 대해서 버블 정렬을 한번 수행할 때마다 $n$번쨰의 원소가 제 자리를 찾게 됩니다.** 그렇기 때문에 다음 정렬에서는 $n-1$개의 원소를 정렬해 주면 됩니다.
 
 따라서 비교 횟수가 $
 (n-1)+(n-2)+\ldots+2+1=\frac{n(n-1)}{2}
@@ -108,7 +107,7 @@ def Selection_Sort(arr):
 
 ## Time Complexity
 
-버블 정렬과는 다르게 몇 번의 교환을 해주었는지 횟수를 계산할 필요가 없습니다. 원래 배열의 순서와 상관없이 선택 정렬로 정렬되는 배열은 $n-1$번의 교환만 필요하기 때문입니다. 하지만 이 과정은 훨씬 더 많은 비교가 필요하므로 연산 비용이 많이 듭니다. 
+버블 정렬과는 다르게 몇 번의 교환을 해주었는지 횟수를 계산할 필요가 없습니다. 원래 배열의 순서와 상관없이 선택 정렬로 정렬되는 배열은 $n-1$번의 교환만 필요하기 때문입니다. 하지만 이 과정은 훨씬 더 많은 비교가 필요하므로 연산 비용이 많이 듭니다.
 
 따라서 시간복잡도는 루프문을 통해 모든 인덱스에 접근해야 하기 떄문에 기본적으로 $O(n)$을 소모하며, 최소값 또는 최대값을 찾으면서 swap해야 하기 떄문에 $O(n)$이 추가로 소모되어 버블 정렬과 같이 $O(n^2)$의 시간복잡도를 가지게 됩니다.
 

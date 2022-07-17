@@ -7,7 +7,7 @@ subtitle: Concept
 math: true
 image: https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559824575/theme14_gi2ypv.jpg
 optimized_image: https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559824575/theme14_gi2ypv.jpg
-category: Programming
+category: Algorithm
 tags:
     - Linear Search
     - Binary Search
@@ -62,7 +62,7 @@ def Linear_Search(arr, target):
          return idx 
          break
    return 'Not Found'
-``` 
+```
 
 # Binary Search
 
@@ -94,7 +94,7 @@ def Binary_Search(arr, target):
       else:
          end = mid -1
    return idx
-``` 
+```
 
 ## Time Complexity
 

@@ -7,7 +7,7 @@ subtitle: Research
 math: true
 image: https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559824575/theme14_gi2ypv.jpg
 optimized_image: https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559824575/theme14_gi2ypv.jpg
-category: Programming
+category: Algorithm
 tags:
     - Algorithm
     - Problem Solving
@@ -86,4 +86,3 @@ Big $O$가 알고리즘 실행 시간의 상한을 나타낸 것이라면, 반�
 <a href="https://pyy0715.github.io/Bubble_Sort/"> [Algorithm] Bubble Sort & Selection Sort </a>
 
 * [Algorithm] Merge Sort
-
