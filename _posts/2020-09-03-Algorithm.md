@@ -21,7 +21,7 @@ author: pyy0715
 컴퓨터 과학은 문제해결에 대한 학문입니다.
 문제 해결은 **입력(Input)** 을 전달받아 **출력(Output)** 을 만들어내는 과정입니다.
 
-![image](https://user-images.githubusercontent.com/47301926/92055418-4c262880-edc9-11ea-8ddb-e9651f41ba12.png)
+![image](/assets/img/posts/2020-09-03-Algorithm-b7dafb79.png)
 
 이러한 입력과 출력을 표현하기 위해선 우선 모두가 동의할 약속(표준)이 필요합니다.
 따라서 컴퓨터 과학 분야에서 가장 첫 번째 개념은 데이터를 어떻게 표현하는지에 대한 표현 방법입니다.

@@ -48,7 +48,7 @@ Metric Learning은 특징간의 거리를 학습하는 것을 목표로 하면�
 얼굴 인식과 같은 이미지 분야의 데이터에서 가장 어려운 것은 유사한 데이터 간 서로 다른  특징을 가지는 데이터간의 분류입니다.
 아래는 강아지 쉽독과 대걸레의 이미지입니다.
 
-![Untitled](https://user-images.githubusercontent.com/47301926/82750730-041c6080-9ded-11ea-9d3e-460981d64e35.png)
+![Untitled](/assets/img/posts/2020-05-24-Metric_Learning1-734ec32c.png)
 
 두 이미지는 서로 다른 이미지가 분명함에도, 사람이 봐도 구분이 어려울 정도로 유사합니다.
 Metric Learning은 이러한 이미지들의 구분이 잘 되도록, 특징을 학습할 수 있다는 장점이 있습니다.
@@ -62,14 +62,14 @@ Metric Learning을 활용합니다.
 위에서 metric learning은 유사한 특징간에는 거리를 가깝게 학습하고, 유사하지 않다면 거리를 멀어지도록 학습시킨다고 말씀드렸습니다.
 사실 개념 자체는 간단하기 때문에 metric learning은 거리를 잘 학습할 수 있도록,네트워크 구조보다는 효과적인 loss를 계산하도록 발전되어왔습니다.
 
-![Untitled 1](https://user-images.githubusercontent.com/47301926/82750731-04b4f700-9ded-11ea-8a1f-b000263d2d16.png)*Source: [https://arxiv.org/pdf/1804.06655.pdf](https://arxiv.org/pdf/1804.06655.pdf)*
+![Untitled 1](/assets/img/posts/2020-05-24-Metric_Learning1-a5f5256a.png)*Source: [https://arxiv.org/pdf/1804.06655.pdf](https://arxiv.org/pdf/1804.06655.pdf)*
 
 이 글에서는 대표적으로 `Pairwise Loss`, `Triplet Loss`의 방법을 살펴보겠습니다.
 아래의 방법들에서 metric은 모두 **Euclidean 거리** 를 기반으로 합니다.
 
 ### Pairwise Loss
 
-![Untitled 2](https://user-images.githubusercontent.com/47301926/82750726-01ba0680-9ded-11ea-880d-740fa976e5f2.png)
+![Untitled 2](/assets/img/posts/2020-05-24-Metric_Learning1-d8b0f404.png)
 
 Pairwise loss는 유사한 특징 간에는 거리를 0이 되도록 학습하고, 유사하지 않다면 설정한
 margin보다 크게 거리를 학습하도록 합니다.
@@ -99,7 +99,7 @@ class MarginRankingLoss(nn.Module):
 
 ### Triplet Loss
 
-![Untitled 3](https://user-images.githubusercontent.com/47301926/82750727-0383ca00-9ded-11ea-899f-d2860a2e8776.png)
+![Untitled 3](/assets/img/posts/2020-05-24-Metric_Learning1-6def565c.png)
 
 이전과 유사하지만 anchor, positive, negative의 입력 구조를 가지면서,
 anchor와 positive가 가깝게하면서 anchor와 negative는 멀게하도록 학습합니다
@@ -147,7 +147,7 @@ loss는 3가지의 상황으로 분류 될 수 있습니다.
 
 그림으로 나타내면 아래와 같습니다.
 
-![Untitled 4](https://user-images.githubusercontent.com/47301926/82750728-0383ca00-9ded-11ea-9434-35142818d62a.png)
+![Untitled 4](/assets/img/posts/2020-05-24-Metric_Learning1-34034fc0.png)
 *Source: [https://omoindrot.github.io/triplet-loss](https://omoindrot.github.io/triplet-loss)*
 
 구현 코드는 아래와 같습니다.

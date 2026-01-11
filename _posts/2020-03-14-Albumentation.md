@@ -71,7 +71,7 @@ for i, ax in enumerate(axs):
     ax.axis('off')
 plt.tight_layout()
 ```
-![output_10_0](https://user-images.githubusercontent.com/47301926/76653209-92819400-65ab-11ea-9e99-61145039a325.png)
+![output_10_0](/assets/img/posts/2020-03-14-Albumentation-e47635cd.png)
 
 ## Blur
 
@@ -101,7 +101,7 @@ for n in range(nrow):
 
 plt.tight_layout()
 ```
-![output_13_0](https://user-images.githubusercontent.com/47301926/76653210-92819400-65ab-11ea-9874-c025988d1c99.png)
+![output_13_0](/assets/img/posts/2020-03-14-Albumentation-a933f24f.png)
 
 ## Noise
 
@@ -132,7 +132,7 @@ for n in range(nrow):
 plt.tight_layout()
 ```
 
-![output_16_0](https://user-images.githubusercontent.com/47301926/76653213-931a2a80-65ab-11ea-91e1-b28dc17fa15b.png)
+![output_16_0](/assets/img/posts/2020-03-14-Albumentation-94ad184a.png)
 
 
 ## Cut Out
@@ -164,7 +164,7 @@ for n in range(nrow):
 plt.tight_layout()
 ```
 
-![output_19_0](https://user-images.githubusercontent.com/47301926/76653199-901f3a00-65ab-11ea-8fc5-e306fcb33861.png)
+![output_19_0](/assets/img/posts/2020-03-14-Albumentation-af679cf0.png)
 
 
 ## Brightness, Contrast
@@ -197,7 +197,7 @@ for n in range(nrow):
 plt.tight_layout()
 ```
 
-![output_22_0](https://user-images.githubusercontent.com/47301926/76653205-91506700-65ab-11ea-8873-fa86b688e701.png)
+![output_22_0](/assets/img/posts/2020-03-14-Albumentation-50ed6411.png)
 
 
 ## Scale, Rotate
@@ -234,7 +234,7 @@ for n in range(nrow):
 plt.tight_layout()
 ```
 
-![output_25_0](https://user-images.githubusercontent.com/47301926/76653206-91e8fd80-65ab-11ea-8ef9-692a6d215afe.png)
+![output_25_0](/assets/img/posts/2020-03-14-Albumentation-a52aaa46.png)
 
 
 ## Affine
@@ -267,7 +267,7 @@ for n in range(nrow):
 plt.tight_layout()
 ```
 
-![output_28_0](https://user-images.githubusercontent.com/47301926/76653208-91e8fd80-65ab-11ea-9f3d-75cd201afc9d.png)
+![output_28_0](/assets/img/posts/2020-03-14-Albumentation-b84dffd1.png)
 
 총 6가지의 대표적인 기법들을 소개했습니다.
 이 외에도 많은 Augmentation 기법들이 있으며, 더 자세히는 [공식 Github](https://github.com/albumentations-team/albumentations)를 참고하시는게 좋습니다.
@@ -371,7 +371,7 @@ transforms_train = albumentations.Compose([
 ])
 ```
 
-![image](https://user-images.githubusercontent.com/47301926/76655952-df686900-65b1-11ea-98d6-de92ac2822ba.png)
+![image](/assets/img/posts/2020-03-14-Albumentation-e01822fc.png)
 
 
 # Reference

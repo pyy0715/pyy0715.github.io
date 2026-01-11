@@ -28,7 +28,7 @@ author: pyy0715
 
 버블 정렬은 배열 안에 들어있는 두 개의 인접한 수를 비교하고 만약 순서에 맞지 않는다면 교환해주는 방식으로 아래의 그림과 같이 작동합니다.
 
-![image](https://user-images.githubusercontent.com/47301926/93830857-5b074900-fcac-11ea-829c-7b3bb8465e56.png)
+![image](/assets/img/posts/2020-09-07-Bubble_Sort-27fbb626.png)
 
 1. 제일 먼저 배열 안에서 5와 1을 비교합니다. 1은 5보다 작기 떄문에 두 수는 교환됩니다.
 2. 다음에는 5와 6을 비교하는데, 올바른 순서로 되어있기 때문에 다음 요소로 넘어갑니다.
@@ -77,7 +77,7 @@ $번이 되면서, 평균적으로 시간 복잡도는 $O(n^2)$가 됩니다.
 
 ## Example
 
-![image](https://user-images.githubusercontent.com/47301926/93833235-00bdb680-fcb3-11ea-9336-8b6ef2d0e78b.png)
+![image](/assets/img/posts/2020-09-07-Bubble_Sort-d20d5c37.png)
 
 1. 배열의 첫 번쨰 자리(5)에서 시작하여, 가장 작은 원소를 찾기 위해 5를 [1, 6, 2, 4, 3]과 비교합니다.
 2. 1이 가장 작은 값이기 때문에, 5의 위치와 교환합니다.

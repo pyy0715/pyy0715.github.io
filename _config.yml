@@ -1,6 +1,6 @@
 # Site Settings
-name: PYY0715's Research Blog For Data Science
-title: PYY0715 | Research Blog
+name: PYY0715's Tech Blog
+title: PYY0715 | Tech Blog
 # description: Jekflix is a template for Jekyll inspired by Netflix and made by
 #   Thiago Rossener.
 tags:
@@ -58,23 +58,13 @@ paginate_path: "/page/:num/"
 show_get_theme_btn: true
 use_logo: false
 
-# Content paginator
-paginate_content:
-  enabled: true
-  debug: false
-  collections:
-    - posts
-  auto: false
-  separator: "--page-break--"
-  permalink: "/:num/"
-  seo_canonical: true
-  properties:
-    part:
-      is_generated: true
-    last:
-      is_generated: true
-    single:
-      is_generated: true
+# Kramdown 설정
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
 
 # SASS
 sass:
@@ -83,7 +73,9 @@ sass:
 # Plugins
 plugins:
   - jekyll-paginate
-  - jekyll-paginate-content
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
 
 # Exclude my node related stuff
 exclude: [
@@ -95,7 +87,8 @@ exclude: [
   'Gemfile',
   'Gemfile.lock',
   'gulpfile.js',
-  'README.md'
+  'README.md',
+  'assets/css/preview.scss'
 ]
 
 # Theme

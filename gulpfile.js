@@ -38,11 +38,25 @@ function config() {
 }
 
 /**
+ * Sync Categories Task
+ *
+ * Synchronize category files from post frontmatter.
+ *
+ * @param {*} done
+ */
+function syncCategories(done) {
+  notify('Syncing categories...');
+  return cp
+    .spawn('ruby', ['scripts/sync-categories.rb'], { stdio: 'inherit' })
+    .on('close', done);
+}
+
+/**
  * Jekyll Task
- * 
+ *
  * Build the Jekyll Site.
- * 
- * @param {*} done 
+ *
+ * @param {*} done
  */
 function jekyll(done) {
   notify('Building Jekyll...');
@@ -200,18 +214,20 @@ function watch() {
  * - Compile the theme, SASS and JavaScript files
  * - Optimize and copy images to its folder
  * - Build the config file
+ * - Sync category files from posts
  * - Compile the Jekyll site
  * - Launch BrowserSync & watch files
  */
-exports.default = gulp.series(gulp.parallel(js, theme, images), config, jekyll, gulp.parallel(server, watch));
+exports.default = gulp.series(gulp.parallel(js, theme, images), config, syncCategories, jekyll, gulp.parallel(server, watch));
 
 /**
  * Build Task
- * 
+ *
  * Running just `gulp build` will:
  * - Compile the theme, SASS and JavaScript files
  * - Optimize and copy images to its folder
  * - Build the config file
+ * - Sync category files from posts
  * - Compile the Jekyll site
  */
-exports.build = gulp.series(gulp.parallel(js, theme, images), config, jekyll);
+exports.build = gulp.series(gulp.parallel(js, theme, images), config, syncCategories, jekyll);

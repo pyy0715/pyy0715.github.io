@@ -52,7 +52,7 @@ factorization machine 또는 신경망 같은 임베딩 기반 모형들은 피�
 
 본 논문은 그림 1과 같이 선형 모형 구성 요소와 신경망 구성 요소를 함께 학습한 모형 안에서 Memorization 및 Generalization 모두를 달성할 수 있는 Wide & Deep 학습 프레임워크를 제시합니다.
 
-![Untitled](https://user-images.githubusercontent.com/47301926/70879083-72235700-2007-11ea-935a-268c8f2d3ba4.png)
+![Untitled](/assets/img/posts/2019-12-14-Wide-and-Deep-47d44752.png)
 
 본 논문의 주된 기여는 다음과 같습니다.
 
@@ -65,7 +65,7 @@ factorization machine 또는 신경망 같은 임베딩 기반 모형들은 피�
 
 ## 2. RECOMMENDER SYSTEM OVERVIEW
 
-![Untitled 1](https://user-images.githubusercontent.com/47301926/70879084-72235700-2007-11ea-8d99-edfb0cd0cf33.png)
+![Untitled 1](/assets/img/posts/2019-12-14-Wide-and-Deep-ae2bfd34.png)
 
 앱 추천 시스템에 대한 개요가 그림 2에 나와있습니다. 사용자가 앱 스토어를 방문하면 사용자 본인과 맥락에 관련된 다양한 변수가 포함되어 쿼리가 생성됩니다. 추천 시스템은 사용자가 클릭이나 구매 같은 특정 동작을 수행할 수 있는 앱 목록(노출이라고도 함)을 반환합니다. 사용자 동작은 쿼리 및 노출과 함께 학습기를 위한 훈련 데이터로 기록됩니다.
 
@@ -80,7 +80,7 @@ factorization machine 또는 신경망 같은 임베딩 기반 모형들은 피�
 
 Wide 구성 요소는 일반화 선형 모델의 형태인 $y=w^x+b$의 형태를 갖습니다. 변수는 입력값과 변환된 변수를 포함합니다. 가장 중요한 변환 중 하나는 다음과 같이 정의되는 외적변환입니다.
 
-![Untitled 2](https://user-images.githubusercontent.com/47301926/70879085-72235700-2007-11ea-9043-7e6f0fba96e9.png)
+![Untitled 2](/assets/img/posts/2019-12-14-Wide-and-Deep-4616ff66.png)
 
 여기서 $c_{ki}$는 $i$번째 변수가 $k$번째 변환 ϕk의 일부이면 1이고 그렇지 않으면 0인 이진 변수입니다.
 
@@ -90,13 +90,13 @@ Wide 구성 요소는 일반화 선형 모델의 형태인 $y=w^x+b$의 형태�
 
 deep 구성 요소는 피드포워드 신경망으로 그림 1의 오른쪽 부분으로 확인할 수 있습니다. 범주형 변수에 대해서 원래 입력값은 문자열 변수(예: `language = en`)입니다. 이런 희소하고 고차원인 범주형 변수 각각은 임베딩 벡터라고 하는 저 차원의 밀집한 실수 값 벡터로  변환됩니다. 임베딩 차원은 일반적으로 O(10)에서 O(100) 수준으로 정합니다. 임베딩 벡터는 임의로 초기화된 후 모형 훈련 과정을 통해 최종 손실 함수를 최소화하도록 값이 훈련됩니다.. 이러한 저차원의 밀집한 임베딩 벡터는 포워드 과정 중 hidden layer로 fed 되어집니다. 구체적으로 각 hidden layer는 밑의 계산을 수행합니다.
 
-![Untitled 3](https://user-images.githubusercontent.com/47301926/70879086-72bbed80-2007-11ea-8a98-0ba57f0fcf5a.png)
+![Untitled 3](/assets/img/posts/2019-12-14-Wide-and-Deep-f6e080bb.png)
 
 $l$은 layrer의 숫자이며, $f$는 활성화 함수로 ReLU를 사용하였습니다.
 
 ### 3.3 Joint Training of Wide & Deep Model
 
-![Untitled 4](https://user-images.githubusercontent.com/47301926/70879087-72bbed80-2007-11ea-9911-084414807df6.png)
+![Untitled 4](/assets/img/posts/2019-12-14-Wide-and-Deep-082d6839.png)
 
 wide 구성 요소와 deep 구성 요소는 [로그 오즈](https://m.blog.naver.com/PostView.nhn?blogId=sw4r&logNo=221150181217&proxyReferer=https%3A%2F%2Fwww.google.com%2F) 가중치 합계를 예측치로 사용하기 위해 결합 되어집니다. 그리고 예측치는 joint 학습을 위해 로지스틱 손실 함수로 사용됩니다.
 
@@ -106,7 +106,7 @@ joint 훈련과 앙상블이 구별된다는 것을 유의하시길 바랍니다
 앙상블의 경우 훈련이 분리되어 있으므로 합리적인 정확도를 얻기 위해 모형 각각이 좀 더 커야 한다(예: 더 많은 변수와 변수 변환). 이와는 다르게 공동 훈련의 경우 넓은 쪽은 전체 크기의 Wide 모형보다 적은 수의 외적변수 변환으로 Deep부분의 약점을 보완하기만 하면 됩니다.
 Wide & Deep 모형 공동 훈련은 미니 배치 단위의 확률적 경사 하강법을 이용하여 출력 값 기울기를 모형 wide 쪽과 deep 쪽 동시에 역전파시킨다. 실험에서 모델의 wide 부분에 대한 최적화로 L1 정규화를 따르는 Follow-the-regularized-leader(FTRL) 알고리즘을 사용했고 deep 부분에 대해서는 AdaGrad를 사용하였습니다.
 
-![Untitled 5](https://user-images.githubusercontent.com/47301926/70879081-718ac080-2007-11ea-8c18-16bdec6fd69a.png)
+![Untitled 5](/assets/img/posts/2019-12-14-Wide-and-Deep-f6b15c98.png)
 
 여기서 $Y$는 이진 값 클래스 레이블이고 $σ(⋅)$는 시그모이드 함수, $ϕ(x)$는 원래 변수 $x$의 외적 변수 변환, $b$는 편향값 입니다. wide는 Wide 모형의 모든 가중치 벡터이고 deep은 최종 출력 값 $a^{l_f}$에 적용한 가중치이다.
 
@@ -122,7 +122,7 @@ Wide & Deep 모형 공동 훈련은 미니 배치 단위의 확률적 경사 하
 
 ### 4.2 Model Training
 
-![Untitled 6](https://user-images.githubusercontent.com/47301926/70879082-72235700-2007-11ea-9c1f-7a55ffcac608.png)
+![Untitled 6](/assets/img/posts/2019-12-14-Wide-and-Deep-77c6112e.png)
 
 사용한 모델의 구조는 위의 그림과 같습니다.
 훈련 중, Input layer는 훈련 데이터와 사전을 받아서 레이블과 함께 Sparse 또는 Dense한 변수를 생성합니다.  

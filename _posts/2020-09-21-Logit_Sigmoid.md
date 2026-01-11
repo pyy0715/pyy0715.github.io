@@ -84,7 +84,7 @@ $P(A)$를 $x$축, 사건 $A$의 승산을 $y$축에 놓고 그래프를 그리�
 
 $$0<odds<\infty$$
 
-![Untitled](https://user-images.githubusercontent.com/47301926/93785000-8f591600-fc68-11ea-9e1a-232f125c8976.png)
+![Untitled](/assets/img/posts/2020-09-21-Logit_Sigmoid-38756079.png)
 
 다시 처음 문제로 돌아와서 생각을 합시다.
 
@@ -107,7 +107,7 @@ logit의 그래프는 아래와 같습니다.
 
 $$-\infty<logit<\infty$$
 
-![Untitled 1](https://user-images.githubusercontent.com/47301926/93785006-908a4300-fc68-11ea-824f-e0ef2cceacb2.png)
+![Untitled 1](/assets/img/posts/2020-09-21-Logit_Sigmoid-d8e02cc2.png)
 
 이렇게 되면 logit의 범위 또한 우변처럼 음의 무한대에서 양의 무한대가 됩니다. 
 이제야 비로소 좌변(logit)이 우변(회귀식)의 범위와 일치하게 됩니다.
@@ -119,7 +119,7 @@ $$\begin{aligned}\operatorname{logit} &=\log (\text {odds}) \\
 
 $$y=\frac { 1 }{ 1+{ e }^{ -x } }$$
 
-![Untitled 2](https://user-images.githubusercontent.com/47301926/93785008-908a4300-fc68-11ea-9efe-712e3427d555.png)
+![Untitled 2](/assets/img/posts/2020-09-21-Logit_Sigmoid-59a3316b.png)
 
 **logistic 함수는 위의 그래프와 같이 $x$값으로 실수 전체를 받을 수가 있지만, 출력 결과는 항상 0에서 1사이 값이 됩니다.** 
 

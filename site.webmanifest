@@ -1,0 +1,19 @@
+{
+    "name": "PYY0715's Tech Blog",
+    "short_name": "PYY0715",
+    "icons": [
+        {
+            "src": "/assets/img/icons/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/img/icons/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#141414",
+    "background_color": "#141414",
+    "display": "standalone"
+}

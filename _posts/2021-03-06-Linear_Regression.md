@@ -78,7 +78,7 @@ $$\theta_{j}:=\theta_{j}-\alpha \cdot \frac{1}{m} \cdot \sum_{i=1}^{m}\left\{h_{
 
 # Overfitting
 
-![90508764-3c84ce00-e193-11ea-8350-9307399adaa4](https://user-images.githubusercontent.com/47301926/110414814-03cb2880-80d4-11eb-8893-8850fbcb4cb4.png)
+![90508764-3c84ce00-e193-11ea-8350-9307399adaa4](/assets/img/posts/2021-03-06-Linear_Regression-854506b4.png)
 
 과적합이란 모델이 학습 데이터에 지나치게 최적화되어 범용성이 없어진 상태를 말합니다. 
 
@@ -104,7 +104,7 @@ Lasso 회귀모형은 **가중치의 절대값의 합**을 최소화하는 것�
 $$\theta = \text{arg}\min_\theta \left( \sum_{i=1}^N e_i^2 + \lambda \sum_{j=1}^M | \theta_j | \right)$$
 
 
-![Untitled](https://user-images.githubusercontent.com/47301926/110247503-f0bf3800-7faf-11eb-8106-5fb00f1441be.png)
+![Untitled](/assets/img/posts/2021-03-06-Linear_Regression-f16089be.png)
 
 위 그림은 Lasso와 Ridge를 설명하는 가장 유명한 그림으로 왼쪽이 Lasso, 오른쪽이 Ridge 방법을 의미합니다. 각각의 방법은 제약범위와 가능한 가장 작은 RSS를 가지면서 만나는 지점의 값으로 계수를 추정합니다.
 

@@ -98,7 +98,7 @@ def Binary_Search(arr, target):
 
 ## Time Complexity
 
-![image](https://user-images.githubusercontent.com/47301926/92421233-810ff200-f1b2-11ea-95be-54e0d5954e6a.png)
+![image](/assets/img/posts/2020-09-04-Search_Algorithm-77b3eb9a.png)
 
 위의 그림과 같이 $n$개의 배열이 있을때, 이진 탐색 알고리즘은 Target을 찾기 위해 매번 탐색 범위를 $n/2$로 줄이게 됩니다.
 따라서 연산의 횟수를 $k$번이라고 하였을떄, $n \times\left(\frac{1}{2}\right)^{k}=1$ 라 할 수 있습니다.

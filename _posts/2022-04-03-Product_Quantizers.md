@@ -67,7 +67,7 @@ sub vector가 있을 때, 가장 가까운 centroid를 찾아 sub_vector를 cent
 
 조금 더 자세히 설명하면 subvector를 centorid의 id만으로 표현함으로써, floating point 32bit를 이산화시켜 8bit로 나타낼 수 있음을 말합니다. 이는 표현되는 정보의 양을 줄임으로써 데이터를 효과적으로 압축시킬 수 있습니다.
 
-![image](https://user-images.githubusercontent.com/47301926/178133751-4b623f4a-ad56-4d3f-bf49-ab29f7ff2e96.png)
+![image](/assets/img/posts/2022-04-03-Product_Quantizers-791701af.png)
 
 ## 5. Nearest Neighbor Search
 
