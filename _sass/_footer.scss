@@ -1,31 +1,38 @@
+@use "functions";
+@use "media";
+@use "mixins";
+@use "variables";
+
+@use "sass:color";
+
 .comments {
-  @include center(rem(800px));
-  padding: 0 rem(20px);
-  
+  @include mixins.center(functions.rem(800px));
+  padding: 0 functions.rem(20px);
+
   h3 {
-    margin: 0 0 rem(30px);
-    font-size: rem(30px);
+    margin: 0 0 functions.rem(30px);
+    font-size: functions.rem(30px);
   }
 }
 
 footer {
-  @include center(rem(800px));
-  border-top: 1px solid darken($accentDark, 10%);
-  background: $accentDark;
-  padding: rem(20px) rem(25px);
-  margin-top: rem(50px);
-  margin-bottom: rem(120px);
-  @include mainFont(300);
+  @include mixins.center(functions.rem(800px));
+  border-top: 1px solid color.scale(variables.$accentDark, $lightness: -10%);
+  background: variables.$accentDark;
+  padding: functions.rem(20px) functions.rem(25px);
+  margin-top: functions.rem(50px);
+  margin-bottom: functions.rem(120px);
+  @include mixins.mainFont(300);
 
-  @include media(">=sm") {
-    margin-top: rem(100px);
+  @include media.media(">=sm") {
+    margin-top: functions.rem(100px);
   }
 
   p {
     text-decoration: none;
-    color: $primaryDark;
-    font-size: rem(16px);
-    line-height: rem(25px);
+    color: variables.$primaryDark;
+    font-size: functions.rem(16px);
+    line-height: functions.rem(25px);
   }
 
   span {
@@ -33,21 +40,21 @@ footer {
   }
 
   svg {
-    @include size(28, 28);
+    @include mixins.size(28, 28);
     display: inline-block;
     vertical-align: middle;
-    margin-right: rem(10px);
+    margin-right: functions.rem(10px);
 
-    @include media(">=sm") {
-      margin-right: rem(20px);
+    @include media.media(">=sm") {
+      margin-right: functions.rem(20px);
     }
 
     &.love {
-      @include size(20, 20);
-      fill: $themeColor;
-      margin-top: rem(-2px);
-      margin-left: rem(3px);
-      margin-right: rem(3px);
+      @include mixins.size(20, 20);
+      fill: variables.$themeColor;
+      margin-top: functions.rem(-2px);
+      margin-left: functions.rem(3px);
+      margin-right: functions.rem(3px);
     }
   }
 
@@ -57,11 +64,11 @@ footer {
     transition: all 0.3s ease;
     text-decoration: none;
     color: #808080;
-    
+
     &:hover {
-      fill: $themeColor;
+      fill: variables.$themeColor;
     }
-    
+
     &.creator:hover {
       text-decoration: underline;
     }
@@ -72,13 +79,13 @@ footer {
     list-style-type: none;
 
     li {
-      margin-bottom: rem(10px);
+      margin-bottom: functions.rem(10px);
     }
 
     a {
       text-decoration: none;
-      font-size: rem(15px);
-      
+      font-size: functions.rem(15px);
+
       &:hover {
         text-decoration: underline;
       }
@@ -88,11 +95,11 @@ footer {
 
 .main-page {
   footer {
-    background: $primaryDark;
-    border-top: 1px solid lighten($primaryDark, 10%);
-    
+    background: variables.$primaryDark;
+    border-top: 1px solid color.scale(variables.$primaryDark, $lightness: 10%);
+
     p {
-      color: $accentDark;
+      color: variables.$accentDark;
     }
   }
 }

@@ -1,0 +1,30 @@
+{% comment %} Responsive Image Include Usage: {% include responsive-image.html
+src="/assets/img/example.jpg" alt="Description" width="800" height="450" %} {%
+endcomment %} {% assign image_path = include.src | relative_url %} {% assign
+image_base = image_path | split: "." | first %} {% assign image_ext = image_path
+| split: "." | last %}
+
+<picture>
+    {% comment %} WebP source for modern browsers {% endcomment %}
+    <source srcset="{{ image_base }}.webp" type="image/webp" />
+
+    {% comment %} Original format fallback {% endcomment %}
+    <source srcset="{{ image_path }}" type="image/{{ image_ext }}" />
+
+    {% comment %} Fallback img tag {% endcomment %}
+    <img
+        src="{{ image_path }}"
+        alt="{{ include.alt | default: 'Image' }}"
+        loading="lazy"
+        decoding="async"
+        width="{{ include.width | default: 800 }}"
+        height="{{ include.height | default: 450 }}"
+        {%
+        if
+        include.class
+        %}class="{{ include.class }}"
+        {%
+        endif
+        %}
+    />
+</picture>

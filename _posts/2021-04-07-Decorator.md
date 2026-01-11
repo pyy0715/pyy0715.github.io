@@ -2,18 +2,18 @@
 date: 2021-04-07 18:39:28
 layout: post
 title: 메소드와 데코레이터
-subtitle: Research
-# description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+type: concept
 math: true
-image: https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559824575/theme14_gi2ypv.jpg
-optimized_image: https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559824575/theme14_gi2ypv.jpg
-category: Programming
+image: |
+  https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559824575/theme14_gi2ypv.jpg
+optimized_image: |
+  https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559824575/theme14_gi2ypv.jpg
+category: Software Engineering
 tags:
-    - Decorator
-    - Method
+  - Decorator
+  - Method
 author: pyy0715
 ---
-
 > **진지한 파이썬** 7장의 내용을 공부하면서 정리한 내용입니다.
 
 메서드와 데코레이터를 공부하기 전에 헷갈릴 수 있는 일부 용어들을 정리할 필요가 있습니다.

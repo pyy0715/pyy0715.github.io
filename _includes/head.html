@@ -62,16 +62,112 @@
     <!-- Android Lolipop Theme Color -->
     <meta name="theme-color" content="#141414" />
 
+    <!-- Preconnect for performance optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <!-- Fonts -->
     <link
-        href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,700"
+        href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap"
         rel="stylesheet"
     />
 
+    <!-- Critical CSS (Above the fold) -->
+    <style>
+        /* CSS Variables */
+        :root {
+            --theme-color: #ff0a16;
+            --theme-color-rgb: 255, 10, 22;
+            --primary-dark: #141414;
+            --text-primary: #333;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --transition-fast: 150ms ease;
+            --radius-md: 8px;
+        }
+
+        /* Base Styles */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                "Titillium Web",
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: #fff;
+        }
+
+        /* Header */
+        .header {
+            background: var(--primary-dark);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+        }
+
+        /* Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--theme-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            z-index: 1000;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Main Content */
+        main {
+            padding-top: 80px;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3 {
+            font-weight: 700;
+            line-height: 1.3;
+            margin-top: 0;
+        }
+
+        a {
+            color: var(--theme-color);
+            text-decoration: none;
+        }
+    </style>
+
+    <!-- Non-critical CSS (Async load) -->
     <link
-        rel="stylesheet"
+        rel="preload"
         href="{{ '/assets/css/styles.css' | prepend: site.baseurl }}"
+        as="style"
+        onload="
+            this.onload = null;
+            this.rel = 'stylesheet';
+        "
     />
+    <noscript>
+        <link
+            rel="stylesheet"
+            href="{{ '/assets/css/styles.css' | prepend: site.baseurl }}"
+        />
+    </noscript>
+
     <link rel="canonical" href="{{ url }}" />
     <link
         rel="alternate"

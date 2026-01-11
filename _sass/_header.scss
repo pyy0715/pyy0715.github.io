@@ -1,50 +1,54 @@
+@use "functions";
+@use "media";
+@use "variables";
+
 html,
 body {
   height: 100%;
 }
 
 .bar-header {
-  background-color: $primaryDark;
-  padding: rem(10px) rem(15px);
+  background-color: variables.$primaryDark;
+  padding: functions.rem(10px) functions.rem(15px);
   position: fixed;
   left: 0;
   width: 100%;
   z-index: 10;
   transition: top 0.5s, left 0.3s ease, background-color 0.5s, box-shadow 0.5s;
   
-  @include media(">=sm") {
-    padding: rem(15px) rem(0px);
+  @include media.media(">=sm") {
+    padding: functions.rem(15px) functions.rem(0px);
   }
 
   .logo {
     display: inline-block;
     margin: 0;
-    height: rem(32px);
-    line-height: rem(32px);
+    height: functions.rem(32px);
+    line-height: functions.rem(32px);
 
     a {
       display: block;
-      color: $accentDark;
+      color: variables.$accentDark;
       text-decoration: none;
-      font-size: rem(32px);
+      font-size: functions.rem(32px);
       position: relative;
       outline: 0;
     }
 
     svg {
-      width: rem(120px);
-      height: rem(30px);
+      width: functions.rem(120px);
+      height: functions.rem(30px);
       transition: all .4s;
   
-      @include media(">=sm") {
-        width: rem(205px);
+      @include media.media(">=sm") {
+        width: functions.rem(205px);
       }
     }
   }
 
   .version {
-    color: $accentDark;
-    font-size: rem(10px);
+    color: variables.$accentDark;
+    font-size: functions.rem(10px);
     font-weight: normal;
     line-height: 1;
     position: absolute;
@@ -58,47 +62,47 @@ body {
   .icon-menu {
     float: left;
     cursor: pointer;
-    margin: rem(5px) rem(20px) rem(5px) 0;
-    width: rem(20px);
-    height: rem(20px);
-    fill: $accentDark;
+    margin: functions.rem(5px) functions.rem(20px) functions.rem(5px) 0;
+    width: functions.rem(20px);
+    height: functions.rem(20px);
+    fill: variables.$accentDark;
 
-    @include media(">=sm") {
-      margin: rem(5px) rem(20px) rem(5px) rem(25px);
+    @include media.media(">=sm") {
+      margin: functions.rem(5px) functions.rem(20px) functions.rem(5px) functions.rem(25px);
     }
   }
 
   .dosearch {
     float: right;
-    width: rem(30px);
-    height: rem(30px);
+    width: functions.rem(30px);
+    height: functions.rem(30px);
     cursor: pointer;
     margin: 0;
-    @include media(">=sm") {
-      margin: 0 rem(20px) 0 0;
+    @include media.media(">=sm") {
+      margin: 0 functions.rem(20px) 0 0;
     }
   }
 
   .icon-search {
-    width: rem(20px);
-    height: rem(20px);
-    fill: $accentDark;
-    margin: rem(5px);
+    width: functions.rem(20px);
+    height: functions.rem(20px);
+    fill: variables.$accentDark;
+    margin: functions.rem(5px);
   }
 
   .get-theme {
     display: none;
-    font-size: rem(13px);
+    font-size: functions.rem(13px);
     font-weight: bold;
     text-decoration: none;
-    background-color: $themeColor;
-    color: $accentDark;
-    padding: rem(5px) rem(10px);
-    border-radius: rem(5px);
+    background-color: variables.$themeColor;
+    color: variables.$accentDark;
+    padding: functions.rem(5px) functions.rem(10px);
+    border-radius: functions.rem(5px);
     float: right;
-    margin: rem(5px) rem(15px) rem(5px) rem(5px);
+    margin: functions.rem(5px) functions.rem(15px) functions.rem(5px) functions.rem(5px);
 
-    @include media(">=sm") {
+    @include media.media(">=sm") {
       display: inline-block;
     }
   }
@@ -119,12 +123,12 @@ body.light:not(.main-page) {
 
     .icon-search,
     .icon-menu {
-      fill: $primaryDark;
+      fill: variables.$primaryDark;
     }
 
     .logo a,
     .version {
-      color: $primaryDark;
+      color: variables.$primaryDark;
     }
   }
 }

@@ -1,8 +1,49 @@
-.idea
+# Dependencies
+node_modules/
+vendor/
+
+# Build output
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Environment & Config
+.env
+.env.local
+mise.local.toml
+
+# Editor & IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS Generated
 .DS_Store
-.sass-cache
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Lock files
 Gemfile.lock
-package-json.lock
-_site
-node_modules
-_drafts
+package-lock.json
+yarn.lock
+
+# Temporary files
+*.swp
+*.swo
+*~
+.tmp/
+
+# Drafts
+_drafts/

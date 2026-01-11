@@ -2,20 +2,18 @@
 date: 2019-12-14 18:39:28
 layout: post
 title: Wide & Deep Learning for Recommender Systems 리뷰
-subtitle: Paper Review
-# description: Paper Review
+type: paper-review
 math: true
-image: https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559822138/theme9_v273a9.jpg
-optimized_image: https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559822138/theme9_v273a9.jpg
-category: Recommender System
+image: |
+  https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559822138/theme9_v273a9.jpg
+optimized_image: |
+  https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559822138/theme9_v273a9.jpg
+category: AI & ML
 tags:
-    - Recommender System
-    - RecSys
-    - Wide and Deep
-    - Paper Review
+  - Recommender System
+  - Paper Review
 author: pyy0715
 ---
-
 # Wide & Deep Learning for Recommender Systems
 
 > [Paper](https://arxiv.org/pdf/1606.07792.pdf%29/)

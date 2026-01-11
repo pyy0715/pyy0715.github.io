@@ -2,19 +2,19 @@
 date: 2020-03-25 18:39:28
 layout: post
 title: Neural Machine Translation By Jointly Learning To Align And Translate 리뷰
-subtitle: Paper Review
-# description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+type: paper-review
 math: true
-image: https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559820489/js-code_n83m7a.jpg
-optimized_image: https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559820489/js-code_n83m7a.jpg
-category: NLP
+image: |
+  https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559820489/js-code_n83m7a.jpg
+optimized_image: |
+  https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559820489/js-code_n83m7a.jpg
+category: AI & ML
 tags:
-    - Neural Machine Translation
-    - Attention
-    - NLP
+  - Neural Machine Translation
+  - Attention
+  - NLP
 author: pyy0715
 ---
-
 # Neural Machine Translation By Jointly Learning To Align And Translate
 
 > [Paper](https://arxiv.org/pdf/1409.0473.pdf)

@@ -2,17 +2,17 @@
 date: 2021-03-06 18:50:28
 layout: post
 title: Linear Regression 톺아보기
-subtitle: Research
-# description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+type: concept
 math: true
-image: https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559825145/theme16_o0seet.jpg
-optimized_image: https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559825145/theme16_o0seet.jpg
-category: Machine Learning
+image: |
+  https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559825145/theme16_o0seet.jpg
+optimized_image: |
+  https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559825145/theme16_o0seet.jpg
+category: AI & ML
 tags:
-    - Linear Regression
+  - Linear Regression
 author: pyy0715
 ---
-
 # Linear Regression이란?
 
 Linear Regression의 사전적 의미는 종속 변수 $y$ 와 한 개 이상의 독립 변수 $x$와의 선형 상관 관계를 모델링하는 회귀분석 기법입니다. **즉, 우리가 학습한 데이터를 기반으로 어떤 임의의 점이 평면 상에 그려졌을 때, 최적의 선형 모델(선)을 찾는 것이 목표**로 하며, 다시 말해 주어진 데이터를 통해 종속 변수 $y_i$와 $n$개의 설명 변수 $x_i$ 사이의 선형 관계를 모델링합니다. 

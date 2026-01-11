@@ -1,228 +1,381 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ site.language }}" class="no-js">
     {% include head.html %}
     <body class="has-push-menu">
-        {% include minutes-to-read.html %}
-        {% include svg-icons.html %}
-        {% include header.html %}
+        {% include minutes-to-read.html %} {% include svg-icons.html %} {%
+        include header.html %}
 
-        <section class="post {% if site.two_columns_layout %}two-columns{% else %}one-column{% endif %}">
-            <article role="article" class="post-content">
+        <!-- Skip to main content link for accessibility -->
+        <a href="#main-content" class="skip-link">본문으로 건너뛰기</a>
+
+        <main
+            id="main-content"
+            class="post {% if site.two_columns_layout %}two-columns{% else %}one-column{% endif %}"
+            role="main"
+        >
+            <article id="post-article" role="article" class="post-content" aria-labelledby="post-title">
                 <p class="post-info">
                     {% if page.date %}
-                        <svg class="icon-calendar" id="date"><use xlink:href="#icon-calendar"></use></svg>
-                        <time class="date" datetime="{{ page.date | date_to_xmlschema }}">
-                            {% include date.html date=page.date %}
-                        </time>
+                    <svg class="icon-calendar" id="date">
+                        <use xlink:href="#icon-calendar"></use>
+                    </svg>
+                    <time
+                        class="date"
+                        datetime="{{ page.date | date_to_xmlschema }}"
+                    >
+                        {% include date.html date=page.date %}
+                    </time>
                     {% endif %}
-                    <svg id="clock" class="icon-clock"><use xlink:href="#icon-clock"></use></svg>
+                    <svg id="clock" class="icon-clock">
+                        <use xlink:href="#icon-clock"></use>
+                    </svg>
                     <span>{{ minutesText }}</span>
                 </p>
-                <h1 class="post-title">{{ page.title }}</h1>
+                <h1 id="post-title" class="post-title">{{ page.title }}</h1>
                 <p class="post-subtitle">{{ page.subtitle }}</p>
 
                 {% if page.image and paginator.activated == nil %}
-                    <img src="{{ page.image }}" alt="Featured image" class="post-cover">
-                {% endif %}
+                <img
+                    src="{{ page.image }}"
+                    alt="{{ page.title | escape }} - Featured image"
+                    class="post-cover"
+                    loading="lazy"
+                    decoding="async"
+                    width="1200"
+                    height="675"
+                />
+                {% endif %} {% include pagination-post.html progressBar=true %}
 
-                {% include pagination-post.html progressBar=true %}
-
-                <!-- Table of Contents - Notion Style -->
+                <!-- Table of Contents - Mobile & Desktop -->
                 {% capture toc_html %}{% include toc.html html=content sanitize=true %}{% endcapture %}
                 {% if toc_html contains '<ul>' %}
-                <div class="toc-wrapper">
-                    <div class="toc-container">
-                        <div class="toc-header" onclick="toggleTOC()">
-                            <h4 class="toc-title">
-                                <span class="toc-icon">📑</span>
-                                <span>Table of Contents</span>
-                            </h4>
-                            <div class="toc-toggle">
-                                <span class="toggle-text">접기</span>
-                                <span class="toggle-icon">▼</span>
-                            </div>
-                        </div>
-                        <div class="toc-content" id="tocContent">
+
+                <!-- Mobile TOC (Collapsible) -->
+                <aside class="toc-mobile" aria-label="목차">
+                    <details>
+                        <summary>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="8" y1="6" x2="21" y2="6"></line>
+                                <line x1="8" y1="12" x2="21" y2="12"></line>
+                                <line x1="8" y1="18" x2="21" y2="18"></line>
+                                <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                                <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                                <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                            </svg>
+                            <span>목차</span>
+                        </summary>
+                        <nav class="toc-mobile-nav" aria-label="페이지 내 네비게이션">
                             {{ toc_html }}
+                        </nav>
+                    </details>
+                </aside>
+
+                <!-- Desktop TOC (Sidebar) -->
+                <aside class="toc-sidebar" role="complementary" aria-label="목차">
+                    <div class="toc-sidebar-content">
+                        <div class="toc-sidebar-header">
+                            <h4 class="toc-sidebar-title">Contents</h4>
                         </div>
+                        <nav class="toc-sidebar-nav" aria-label="페이지 내 네비게이션">
+                            {{ toc_html }}
+                        </nav>
                     </div>
-                </div>
+                </aside>
                 {% endif %}
 
-                {{ content }}
-
-                {% include pagination-post.html %}
+                {{ content }} {% include pagination-post.html %}
             </article>
 
             {% if site.two_columns_layout %}
-                <aside class="see-also">
-                    <h2>{{ site.translations.text.see_also | default: "See also" }}</h2>
-                    <ul>
-                        {% assign next_posts = site.posts | where_exp:"post","post.is_generated != true" | where_exp:"post","post.path != page.path" %}
-                        {% assign shuffled_array = next_posts | shuffle %}
-                        {% for post in shuffled_array limit:2 %}
-                            <li>
-                                <a href="{{ post.url | prepend: site.baseurl }}">
-                                    {% if post.optimized_image %}
-                                        <img src="{{ post.optimized_image }}">
-                                    {% elsif post.image %}
-                                        <img src="{{ post.image }}">
-                                    {% else %}
-                                        <img src="/assets/img/off.jpg">
-                                    {% endif %}
-                                    <h3>{{ post.title }}</h3>
-                                </a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </aside>
+            <aside class="see-also">
+                <h2>
+                    {{ site.translations.text.see_also | default: "See also" }}
+                </h2>
+                <ul>
+                    {% assign next_posts = site.posts |
+                    where_exp:"post","post.is_generated != true" |
+                    where_exp:"post","post.path != page.path" %} {% assign
+                    shuffled_array = next_posts | shuffle %} {% for post in
+                    shuffled_array limit:2 %}
+                    <li>
+                        <a href="{{ post.url | prepend: site.baseurl }}">
+                            {% if post.optimized_image %}
+                            <img src="{{ post.optimized_image }}" />
+                            {% elsif post.image %}
+                            <img src="{{ post.image }}" />
+                            {% else %}
+                            <img src="/assets/img/off.jpg" />
+                            {% endif %}
+                            <h3>{{ post.title }}</h3>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </aside>
             {% endif %}
-
-        </section>
+        </main>
 
         <!-- Add time bar only for pages without pagination -->
-        {% if paginator.activated == nil and site.show_time_bar == true %}
-            {% include time-bar.html %}
-            {% include recommendation.html %}
-        {% endif %}
+        {% if paginator.activated == nil and site.show_time_bar == true %} {%
+        include time-bar.html %} {% include recommendation.html %} {% endif %}
 
         <!-- Show modal if the post is the last one -->
-        {% if paginator.is_last and site.show_modal_on_finish_post %}
-            {% include modal.html title="You made it!" subtitle="Why don't you try another?" %}
+        {% if paginator.is_last and site.show_modal_on_finish_post %} {% include
+        modal.html title="You made it!" subtitle="Why don't you try another?" %}
         {% endif %}
 
         <!-- Show modal before user leaves the page -->
-        {% if site.show_modal_on_exit %}
-            {% include modal.html title="Don't go yet!" subtitle="You may also like..." closed=true showOnExit=true %}
-        {% endif %}
-
-        {% include subscription.html %}
-        {% include share.html %}
-        {% include author.html %}
-        {% include comments.html %}
-        {% include footer.html %}
-
-        {% assign author = site.authors | where: "name", post.author | first %}
-
-        {% assign author_urls = '' %}
-        {% if author.github_username %}
-            {% assign author_urls = author_urls | append: '"https://github.com/' | append: author.github_username | append: '",' %}
-        {% endif %}
-        {% if author.facebook_username %}
-            {% assign author_urls = author_urls | append: '"https://www.facebook.com/' | append: author.facebook_username | append: '",' %}
-        {% endif %}
-        {% if author.twitter_username %}
-            {% assign author_urls = author_urls | append: '"https://twitter.com/' | append: author.twitter_username | append: '",' %}
-        {% endif %}
-        {% if author.medium_username %}
-            {% assign author_urls = author_urls | append: '"https://medium.com/@' | append: author.medium_username | append: '",' %}
-        {% endif %}
-        {% if author.instagram_username %}
-            {% assign author_urls = author_urls | append: '"https://www.instagram.com/' | append: author.instagram_username | append: '",' %}
-        {% endif %}
-        {% if author.linkedin_username %}
-            {% assign author_urls = author_urls | append: '"https://www.linkedin.com/in/' | append: author.linkedin_username | append: '",' %}
-        {% endif %}
-        {% if page.math %}
+        {% if site.show_modal_on_exit %} {% include modal.html title="Don't go
+        yet!" subtitle="You may also like..." closed=true showOnExit=true %} {%
+        endif %} {% include subscription.html %} {% include share.html %} {%
+        include author.html %} {% include comments.html %} {% include
+        footer.html %} {% assign author = site.authors | where: "name",
+        post.author | first %} {% assign author_urls = '' %} {% if
+        author.github_username %} {% assign author_urls = author_urls | append:
+        '"https://github.com/' | append: author.github_username | append: '",'
+        %} {% endif %} {% if author.facebook_username %} {% assign author_urls =
+        author_urls | append: '"https://www.facebook.com/' | append:
+        author.facebook_username | append: '",' %} {% endif %} {% if
+        author.twitter_username %} {% assign author_urls = author_urls | append:
+        '"https://twitter.com/' | append: author.twitter_username | append: '",'
+        %} {% endif %} {% if author.medium_username %} {% assign author_urls =
+        author_urls | append: '"https://medium.com/@' | append:
+        author.medium_username | append: '",' %} {% endif %} {% if
+        author.instagram_username %} {% assign author_urls = author_urls |
+        append: '"https://www.instagram.com/' | append:
+        author.instagram_username | append: '",' %} {% endif %} {% if
+        author.linkedin_username %} {% assign author_urls = author_urls |
+        append: '"https://www.linkedin.com/in/' | append:
+        author.linkedin_username | append: '",' %} {% endif %} {% if page.math
+        %}
+        <!-- MathJax optimization with preconnect -->
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
         <script>
             MathJax = {
                 tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']]
+                    inlineMath: [
+                        ["$", "$"],
+                        ["\\(", "\\)"],
+                    ],
+                },
+                options: {
+                    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
                 }
             };
         </script>
-        <script type="text/javascript" id="MathJax-script" async
-            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-        </script>
+        <script
+            type="text/javascript"
+            id="MathJax-script"
+            async
+            defer
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+        ></script>
         {% endif %}
         <script type="application/ld+json">
-        {
-            "@context": "http://schema.org",
-            "@type": "BlogPosting",
-            "name": "{{ page.title }}",
-            "headline": "{{ page.subtitle }}",
-            "description": "{{ page.description }}",
-            "image": "{{ page.image }}",
-            "url": "{{ page.url | prepend: site.baseurl | prepend: site.url }}",
-            "articleBody": "{{ content | strip_html | xml_escape | textilize }}",
-            "wordcount": "{{ content | number_of_words }}",
-            "inLanguage": "{{ site.language }}",
-            "dateCreated": "{{ page.date | date: '%Y-%m-%d/' }}",
-            "datePublished": "{{ page.date | date: '%Y-%m-%d/' }}",
-            "dateModified": "{{ page.date | date: '%Y-%m-%d/' }}",
-            "author": {
-                "@type": "Person",
-                "name": "{{ author.display_name }}",
-                {% if author.photo %}
-                "image": "{{ author.photo }}",
-                {% else %}
-                "image": {{ "/assets/img/user.jpg" | prepend: site.baseurl | prepend: site.url }},
-                {% endif %}
-                "jobTitle": "{{ author.position }}",
-                "url": "{{ author.url | prepend: site.baseurl | prepend: site.url }}",
-                "sameAs": [
-                    {{ author_urls | split: "," | join: "," }}
-                ]
-            },
-            "publisher": {
-                "@type": "Organization",
-                "name": "{{ site.name }}",
-                "url": "{{ site.url }}{{site.baseurl}}/",
-                "logo": {
-                    "@type": "ImageObject",
-                    "url": "{{ site.url }}{{site.baseurl}}/assets/img/blog-image.png",
-                    "width": "600",
-                    "height": "315"
-                }
-            },
-            "mainEntityOfPage": "True",
-            "genre": "{{ page.category }}",
-            "articleSection": "{{ page.category }}",
-            "keywords": [{{ page.tags | join: '","' | append: '"' | prepend: '"' }}]
-        }
+            {
+                "@context": "http://schema.org",
+                "@type": "BlogPosting",
+                "name": "{{ page.title }}",
+                "headline": "{{ page.subtitle }}",
+                "description": "{{ page.description }}",
+                "image": "{{ page.image }}",
+                "url": "{{ page.url | prepend: site.baseurl | prepend: site.url }}",
+                "articleBody": "{{ content | strip_html | xml_escape | textilize }}",
+                "wordcount": "{{ content | number_of_words }}",
+                "inLanguage": "{{ site.language }}",
+                "dateCreated": "{{ page.date | date: '%Y-%m-%d/' }}",
+                "datePublished": "{{ page.date | date: '%Y-%m-%d/' }}",
+                "dateModified": "{{ page.date | date: '%Y-%m-%d/' }}",
+                "author": {
+                    "@type": "Person",
+                    "name": "{{ author.display_name }}",
+                    {% if author.photo %}
+                    "image": "{{ author.photo }}",
+                    {% else %}
+                    "image": {{ "/assets/img/user.jpg" | prepend: site.baseurl | prepend: site.url }},
+                    {% endif %}
+                    "jobTitle": "{{ author.position }}",
+                    "url": "{{ author.url | prepend: site.baseurl | prepend: site.url }}",
+                    "sameAs": [
+                        {{ author_urls | split: "," | join: "," }}
+                    ]
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "{{ site.name }}",
+                    "url": "{{ site.url }}{{site.baseurl}}/",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "{{ site.url }}{{site.baseurl}}/assets/img/blog-image.png",
+                        "width": "600",
+                        "height": "315"
+                    }
+                },
+                "mainEntityOfPage": "True",
+                "genre": "{{ page.category }}",
+                "articleSection": "{{ page.category }}",
+                "keywords": [{{ page.tags | join: '","' | append: '"' | prepend: '"' }}]
+            }
         </script>
 
-        <!-- TOC Toggle Script -->
+        <!-- Code Block Copy Button Script -->
         <script>
-        function toggleTOC() {
-            const header = document.querySelector('.toc-header');
-            const content = document.getElementById('tocContent');
-            const toggleText = document.querySelector('.toggle-text');
+            document.addEventListener("DOMContentLoaded", function () {
+                // Add copy button to all code blocks
+                const codeBlocks = document.querySelectorAll('pre');
 
-            if (content && header) {
-                const isCollapsed = content.classList.contains('collapsed');
+                codeBlocks.forEach((codeBlock) => {
+                    // Create copy button
+                    const button = document.createElement('button');
+                    button.className = 'copy-button';
+                    button.textContent = 'Copy';
+                    button.setAttribute('aria-label', 'Copy code to clipboard');
 
-                if (isCollapsed) {
-                    content.classList.remove('collapsed');
-                    header.classList.remove('collapsed');
-                    toggleText.textContent = '접기';
-                } else {
-                    content.classList.add('collapsed');
-                    header.classList.add('collapsed');
-                    toggleText.textContent = '펼치기';
+                    // Add click event
+                    button.addEventListener('click', async () => {
+                        const code = codeBlock.querySelector('code');
+                        const text = code ? code.textContent : codeBlock.textContent;
+
+                        try {
+                            await navigator.clipboard.writeText(text);
+                            button.textContent = 'Copied!';
+                            button.classList.add('copied');
+
+                            setTimeout(() => {
+                                button.textContent = 'Copy';
+                                button.classList.remove('copied');
+                            }, 2000);
+                        } catch (err) {
+                            console.error('Failed to copy:', err);
+                            button.textContent = 'Failed';
+
+                            setTimeout(() => {
+                                button.textContent = 'Copy';
+                            }, 2000);
+                        }
+                    });
+
+                    codeBlock.appendChild(button);
+                });
+            });
+        </script>
+
+        <!-- TOC Enhanced Script with Progress Indicator & Smooth Scroll -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const tocSidebarLinks = document.querySelectorAll(".toc-sidebar-nav a");
+                const tocMobileLinks = document.querySelectorAll(".toc-mobile-nav a");
+                const allTocLinks = [...tocSidebarLinks, ...tocMobileLinks];
+
+                if (allTocLinks.length === 0) return;
+
+                // Get all headings with IDs
+                const headings = document.querySelectorAll(
+                    "h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]",
+                );
+                if (headings.length === 0) return;
+
+                // Track read sections for progress indicator
+                const readSections = new Set();
+
+                // Highlight active section and track progress
+                function highlightActiveSection() {
+                    let current = "";
+                    const scrollPosition = window.scrollY + 100;
+
+                    // Clear and rebuild read sections based on current scroll position
+                    readSections.clear();
+
+                    headings.forEach((heading) => {
+                        const sectionTop = heading.offsetTop;
+                        const sectionId = heading.getAttribute("id");
+
+                        // Mark sections as read when scrolled past
+                        if (scrollPosition >= sectionTop) {
+                            current = sectionId;
+                            readSections.add(sectionId);
+                        }
+                    });
+
+                    allTocLinks.forEach((link) => {
+                        const href = link.getAttribute("href");
+                        const sectionId = href ? href.substring(1) : "";
+
+                        // Remove all state classes
+                        link.classList.remove("active", "read");
+
+                        // Add appropriate class
+                        if (href === "#" + current) {
+                            link.classList.add("active");
+                        } else if (readSections.has(sectionId)) {
+                            link.classList.add("read");
+                        }
+                    });
                 }
-            }
-        }
 
-        // Save TOC state to localStorage
-        document.addEventListener('DOMContentLoaded', function() {
-            const tocContent = document.getElementById('tocContent');
-            if (tocContent) {
-                // Optional: Remember user's preference
-                const savedState = localStorage.getItem('tocState');
-                if (savedState === 'collapsed') {
-                    toggleTOC();
+                // Smooth scroll to section with offset
+                function smoothScrollToSection(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute("href").substring(1);
+                    const targetElement = document.getElementById(targetId);
+
+                    if (targetElement) {
+                        const headerOffset = 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth",
+                        });
+
+                        // Update URL without page jump
+                        history.pushState(null, null, "#" + targetId);
+
+                        // Close mobile TOC after navigation
+                        const mobileDetails = document.querySelector(".toc-mobile details");
+                        if (mobileDetails && window.innerWidth < 1024) {
+                            mobileDetails.removeAttribute("open");
+                        }
+                    }
                 }
 
-                // Save state when toggled
-                const originalToggle = window.toggleTOC;
-                window.toggleTOC = function() {
-                    originalToggle();
-                    const isCollapsed = tocContent.classList.contains('collapsed');
-                    localStorage.setItem('tocState', isCollapsed ? 'collapsed' : 'expanded');
-                };
-            }
-        });
+                // Attach click handlers
+                allTocLinks.forEach((link) => {
+                    link.addEventListener("click", smoothScrollToSection);
+                });
+
+                // Throttled scroll event for performance
+                let ticking = false;
+                window.addEventListener("scroll", function () {
+                    if (!ticking) {
+                        window.requestAnimationFrame(function () {
+                            highlightActiveSection();
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                });
+
+                // Initial highlight
+                highlightActiveSection();
+
+                // Handle initial hash in URL
+                if (window.location.hash) {
+                    const target = document.querySelector(window.location.hash);
+                    if (target) {
+                        setTimeout(() => {
+                            const headerOffset = 80;
+                            const elementPosition = target.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: "smooth",
+                            });
+                        }, 100);
+                    }
+                }
+            });
         </script>
     </body>
 </html>

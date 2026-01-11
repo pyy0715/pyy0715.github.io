@@ -1,17 +1,72 @@
+@use "theme";
+
 /**
  * Set up here the general appearance of the theme.
  */
 
-$themeColor: map-get($theme, themeColor) !default;
-$primaryDark: map-get($theme, primaryDark) !default;
-$accentDark: map-get($theme, accentDark) !default;
-$lightGray: map-get($theme, lightGray) !default;
-$texts: map-get($theme, texts) !default;
+@use "sass:map";
 
-// Breakpoints
+$themeColor: map.get(theme.$theme, themeColor) !default;
+$primaryDark: map.get(theme.$theme, primaryDark) !default;
+$accentDark: map.get(theme.$theme, accentDark) !default;
+$lightGray: map.get(theme.$theme, lightGray) !default;
+$texts: map.get(theme.$theme, texts) !default;
+
+// 2026 Standard Breakpoints (Mobile First)
 $breakpoints: (
-  sm: 37.5rem
+  xs: 20rem,      // 320px - 소형 모바일
+  sm: 36rem,      // 576px - 대형 모바일
+  md: 48rem,      // 768px - 태블릿
+  lg: 64rem,      // 1024px - 노트북
+  xl: 80rem,      // 1280px - 데스크탑
+  xxl: 90rem      // 1440px - 대형 모니터
 );
+
+// CSS Custom Properties
+:root {
+  // Colors
+  --theme-color: #{$themeColor};
+  --theme-color-rgb: 255, 10, 22;
+  --primary-dark: #{$primaryDark};
+  --accent-dark: #{$accentDark};
+  --light-gray: #{$lightGray};
+  --text-primary: #{$texts};
+  --text-secondary: #666;
+  --bg-secondary: #f5f5f5;
+
+  // Spacing
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  // Border Radius
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  // Shadows
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  // Transitions
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+}
+
+// Dark Mode Support (향후 확장)
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-dark: #0a0a0a;
+    --text-primary: #e5e5e5;
+    --text-secondary: #a3a3a3;
+    --light-gray: #262626;
+    --bg-secondary: #1a1a1a;
+  }
+}
 
 // Margins
 $rowMargin: 10px;

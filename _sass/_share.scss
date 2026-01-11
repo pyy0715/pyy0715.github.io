@@ -1,12 +1,17 @@
-.share {
-  @include center(800px);
-  text-align: center;
-  border-top: 1px solid $lightGray;
-  padding-top: rem(20px);
-  margin-top: rem(10px);
+@use "functions";
+@use "media";
+@use "mixins";
+@use "variables";
 
-  @include media(">=sm") {
-    margin-top: rem(50px);
+.share {
+  @include mixins.center(800px);
+  text-align: center;
+  border-top: 1px solid variables.$lightGray;
+  padding-top: functions.rem(20px);
+  margin-top: functions.rem(10px);
+
+  @include media.media(">=sm") {
+    margin-top: functions.rem(50px);
   }
 
   article & {
@@ -14,8 +19,8 @@
   }
 
   svg {
-    margin: rem(15px);
-    @include size(35, 35);
+    margin: functions.rem(15px);
+    @include mixins.size(35, 35);
   }
 
   a {

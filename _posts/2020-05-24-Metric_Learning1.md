@@ -2,19 +2,19 @@
 date: 2020-05-24 18:39:28
 layout: post
 title: Understanding Metric Learning, Chapter1
-subtitle: Research
-# description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+type: concept
 math: true
-image: https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559825145/theme16_o0seet.jpg
-optimized_image: https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559825145/theme16_o0seet.jpg
-category: Machine Learning
+image: |
+  https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559825145/theme16_o0seet.jpg
+optimized_image: |
+  https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559825145/theme16_o0seet.jpg
+category: AI & ML
 tags:
-    - Metric Learning
-    - Triplet
-    - Pairwise
+  - Metric Learning
+  - Triplet
+  - Pairwise
 author: pyy0715
 ---
-
 # Understanding Metric Learning, Chapter1
 
 머신 러닝에서 분류와 회귀등의 문제를 해결하기 위해서는 주어진 데이터로부터 특징을 잘 파악하는 것이 중요합니다.

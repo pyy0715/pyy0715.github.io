@@ -2,15 +2,16 @@
 date: 2021-02-09 18:39:28
 layout: post
 title: HuggingFace Tokenizer Tutorial
-subtitle: Tutorial
-# description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+type: tutorial
 math: true
-image: https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559820489/js-code_n83m7a.jpg
-optimized_image: https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559820489/js-code_n83m7a.jpg
-category: NLP
+image: |
+  https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559820489/js-code_n83m7a.jpg
+optimized_image: |
+  https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559820489/js-code_n83m7a.jpg
+category: AI & ML
 tags:
-    - HuggingFace
-    - Tokenizer 
+  - HuggingFace
+  - Tokenizer
 author: pyy0715
 ---
 # HuggingFace

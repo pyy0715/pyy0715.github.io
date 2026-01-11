@@ -2,19 +2,19 @@
 date: 2020-03-14 18:39:28
 layout: post
 title: Albumentation Library 소개
-subtitle: Tutorial
-# description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+type: tutorial
 math: true
-image: https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559822137/theme11_vei7iw.jpg
-optimized_image: https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559822137/theme11_vei7iw.jpg
-category: Vision
+image: |
+  https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559822137/theme11_vei7iw.jpg
+optimized_image: |
+  https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559822137/theme11_vei7iw.jpg
+category: AI & ML
 tags:
-    - Albumentation
-    - Augmentation
-    - CNN
+  - Albumentation
+  - Augmentation
+  - CNN
 author: pyy0715
 ---
-
 # What is Augmentation?
 
 오늘은 최근 블로그에 쓰고 있던 주제와는 다른 글을 가져오게 되었습니다.

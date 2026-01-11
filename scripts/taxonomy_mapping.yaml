@@ -1,0 +1,54 @@
+# Taxonomy Migration Mapping
+
+# Category 매핑
+category_mapping:
+  "Machine Learning": "AI & ML"
+  "NLP": "AI & ML"
+  "Recommender System": "AI & ML"
+  "Vision": "AI & ML"
+  "Algorithm": "Computer Science"
+  "Data Structure": "Computer Science"
+  "Programming": "Software Engineering"
+  "Linux": "DevOps"
+  "Book Review": "Career & Growth"  # Book Review는 type으로 구분
+  "Activity": "Career & Growth"
+
+# Subtitle → Type 매핑
+type_mapping:
+  "Paper Review": "paper-review"
+  "Research": "concept"
+  "Concept": "concept"
+  "Review": "book-review"
+  "Tutorial": "tutorial"
+  "Setting": "tutorial"
+  "": "concept"  # subtitle이 없는 경우 기본값
+
+# 포스트별 개별 설정 (특별한 경우)
+post_overrides:
+  "2020-02-27-Geultto4.md":
+    type: "experience"
+  "2022-07-15-Kakao.md":
+    type: "experience"
+
+# Tags 표준화 규칙
+tag_replacements:
+  # 일관성을 위한 태그 정리
+  "RecSys": "Recommender Systems"
+  "tree": "Tree"
+  "graph": "Graph"
+  "카카오": "Kakao"
+  "이직": "Career"
+  "나는 리뷰어다": "Book Review"
+
+# 카테고리별 기본 태그 추가 (선택적)
+default_tags_by_category:
+  "AI & ML":
+    - "Machine Learning"
+  "DevOps":
+    - "DevOps"
+  "Software Engineering":
+    - "Programming"
+  "Computer Science":
+    - "Algorithm"
+  "Career & Growth":
+    - "Career"

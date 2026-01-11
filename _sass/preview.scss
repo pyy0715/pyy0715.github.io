@@ -1,3 +1,4 @@
+@use "sass:color";
 @import "include-media";
 @import "normalize";
 @import "theme";
@@ -32,7 +33,7 @@ body {
   figcaption,
   img + em {
     display: block;
-    color: darken($lightGray, 30%);
+    color: color.scale($lightGray, $lightness: -30%);
     text-align: center;
     @include mainFont(300);
   }
@@ -74,7 +75,7 @@ body {
   }
 
   p.post-subtitle {
-    color: darken($lightGray, 30%);
+    color: color.scale($lightGray, $lightness: -30%);
     font-size: rem(17px);
     margin: 0 auto rem(10px);
     line-height: rem(30px);
@@ -96,7 +97,7 @@ body {
     @include mainFont(300);
     font-size: rem(13px);
     letter-spacing: 0;
-    color: darken($lightGray, 30%);
+    color: color.scale($lightGray, $lightness: -30%);
     margin: 0 auto;
 
     @include media(">=sm") {
@@ -119,7 +120,7 @@ body {
     svg {
       width: rem(15px);
       height: rem(15px);
-      fill: darken($lightGray, 30%);
+      fill: color.scale($lightGray, $lightness: -30%);
       vertical-align: middle;
       margin-right: rem(5px);
     }
@@ -222,7 +223,7 @@ body {
       font-size: rem(17px);
       color: rgba(0, 0, 0, 0.6);
       margin: 0;
-      
+
       @include media(">=sm") {
         font-size: rem(20px);
       }

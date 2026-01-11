@@ -1,0 +1,136 @@
+/**
+ * Modern Media Query Mixin
+ * Replacement for include-media using Dart Sass module system
+ */
+
+@use "sass:map";
+@use "sass:string";
+@use "sass:list";
+
+// Breakpoints (will be overridden by variables)
+$breakpoints: (
+  xs: 20rem,      // 320px
+  sm: 36rem,      // 576px
+  md: 48rem,      // 768px
+  lg: 64rem,      // 1024px
+  xl: 80rem,      // 1280px
+  xxl: 90rem      // 1440px
+) !default;
+
+/// Media query mixin
+/// @param {String} $conditions - Media query conditions (e.g., ">=sm", "<md")
+/// @example
+///   @include media(">=sm") { ... }
+///   @include media("<md") { ... }
+@mixin media($conditions...) {
+  @if list.length($conditions) == 0 {
+    @content;
+  } @else {
+    $query: parse-condition(list.nth($conditions, 1));
+
+    @media #{$query} {
+      @if list.length($conditions) > 1 {
+        @include media(list.slice($conditions, 2)...) {
+          @content;
+        }
+      } @else {
+        @content;
+      }
+    }
+  }
+}
+
+/// Parse a single condition and return media query string
+/// @param {String} $condition - Condition to parse
+/// @return {String} Media query string
+@function parse-condition($condition) {
+  $operator: get-operator($condition);
+  $breakpoint: get-breakpoint($condition);
+  $value: null;
+
+  @if map.has-key($breakpoints, $breakpoint) {
+    $value: map.get($breakpoints, $breakpoint);
+  } @else {
+    $value: $breakpoint;
+  }
+
+  @if $operator == ">=" {
+    @return "(min-width: #{$value})";
+  } @else if $operator == "<" {
+    @return "(max-width: #{subtract-1px($value)})";
+  } @else if $operator == ">" {
+    @return "(min-width: #{add-1px($value)})";
+  } @else if $operator == "<=" {
+    @return "(max-width: #{$value})";
+  } @else {
+    @return "(min-width: #{$value})";
+  }
+}
+
+/// Extract operator from condition string
+/// @param {String} $condition - Condition string
+/// @return {String} Operator
+@function get-operator($condition) {
+  @if string.index($condition, ">=") {
+    @return ">=";
+  } @else if string.index($condition, "<=") {
+    @return "<=";
+  } @else if string.index($condition, ">") {
+    @return ">";
+  } @else if string.index($condition, "<") {
+    @return "<";
+  } @else {
+    @return ">=";
+  }
+}
+
+/// Extract breakpoint name/value from condition string
+/// @param {String} $condition - Condition string
+/// @return {String} Breakpoint name or value
+@function get-breakpoint($condition) {
+  $condition: string.slice($condition, 1);
+
+  @if string.index($condition, ">=") {
+    @return string.slice($condition, 3);
+  } @else if string.index($condition, "<=") {
+    @return string.slice($condition, 3);
+  } @else if string.index($condition, ">") {
+    @return string.slice($condition, 2);
+  } @else if string.index($condition, "<") {
+    @return string.slice($condition, 2);
+  } @else {
+    @return $condition;
+  }
+}
+
+/// Subtract 1px from a value
+/// @param {Number} $value - Value to subtract from
+/// @return {Number} Result
+@function subtract-1px($value) {
+  @if string.index("#{$value}", "rem") {
+    $num: calc(#{$value} - 0.0625rem);
+    @return $num;
+  } @else if string.index("#{$value}", "em") {
+    $num: calc(#{$value} - 0.0625em);
+    @return $num;
+  } @else {
+    $num: calc(#{$value} - 1px);
+    @return $num;
+  }
+}
+
+/// Add 1px to a value
+/// @param {Number} $value - Value to add to
+/// @return {Number} Result
+@function add-1px($value) {
+  @if string.index("#{$value}", "rem") {
+    $num: calc(#{$value} + 0.0625rem);
+    @return $num;
+  } @else if string.index("#{$value}", "em") {
+    $num: calc(#{$value} + 0.0625em);
+    @return $num;
+  } @else {
+    $num: calc(#{$value} + 1px);
+    @return $num;
+  }
+}

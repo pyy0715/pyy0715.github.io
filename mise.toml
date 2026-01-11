@@ -1,0 +1,35 @@
+# mise.toml - Modern development environment configuration
+# Replaces .tool-versions with enhanced task management
+
+[tools]
+ruby = "3.2"
+node = "22"
+
+[env]
+JEKYLL_ENV = "development"
+
+[tasks.dev]
+description = "Start development server with live reload"
+run = "SASS_QUIET_DEPS=true bundle exec jekyll serve --livereload"
+
+[tasks.build]
+description = "Build for production"
+run = """
+JEKYLL_ENV=production gulp build
+bundle exec jekyll build
+"""
+
+[tasks.install]
+description = "Install all dependencies"
+run = """
+bundle install
+npm install
+"""
+
+[tasks.clean]
+description = "Clean build artifacts"
+run = """
+rm -rf _site
+rm -rf .jekyll-cache
+rm -rf .sass-cache
+"""

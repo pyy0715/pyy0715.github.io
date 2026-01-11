@@ -1,48 +1,55 @@
+@use "functions";
+@use "media";
+@use "mixins";
+@use "variables";
+
+@use "sass:color";
+
 .author {
-  background: $lightGray;
+  background: variables.$lightGray;
   display: table;
   width: 100%;
-  padding: rem(40px) 0;
-  margin: rem(40px) 0;
+  padding: functions.rem(40px) 0;
+  margin: functions.rem(40px) 0;
 
-  @include media(">=sm") {
-    padding: rem(50px) 0;
+  @include media.media(">=sm") {
+    padding: functions.rem(50px) 0;
   }
 
   .details {
     margin: auto;
-    max-width: rem(800px);
-    padding: 0 rem(20px);
+    max-width: functions.rem(800px);
+    padding: 0 functions.rem(20px);
 
-    @include media("<sm") {
+    @include media.media("<sm") {
       text-align: center;
     }
   }
 
   svg {
-    @include size(25, 25);
-    margin-right: rem(10px);
+    @include mixins.size(25, 25);
+    margin-right: functions.rem(10px);
   }
 
   a {
-    fill: darken($lightGray, 30%);
+    fill: color.scale(variables.$lightGray, $lightness: -30%);
     text-decoration: none;
     border: none;
     transition: all 0.3s;
 
     &:hover {
-      fill: $themeColor;
+      fill: variables.$themeColor;
     }
   }
 
   img {
-    width: rem(150px);
+    width: functions.rem(150px);
     border-radius: 50%;
     display: block;
     margin: auto;
 
-    @include media(">=sm") {
-      width: rem(180px);
+    @include media.media(">=sm") {
+      width: functions.rem(180px);
       float: left;
       margin-right: 3.125rem;
     }
@@ -50,11 +57,11 @@
 
   .def {
     color: gray;
-    font-size: rem(18px);
-    @include mainFont(300);
-    margin: rem(10px);
+    font-size: functions.rem(18px);
+    @include mixins.mainFont(300);
+    margin: functions.rem(10px);
 
-    @include media(">=sm") {
+    @include media.media(">=sm") {
       margin: 0;
     }
   }
@@ -63,29 +70,29 @@
     margin: 0;
 
     a {
-      @include mainFont();
+      @include mixins.mainFont();
       text-decoration: none;
       color: black;
-      font-size: rem(30px);
+      font-size: functions.rem(30px);
 
-      @include media(">=sm") {
-        font-size: rem(45px);
+      @include media.media(">=sm") {
+        font-size: functions.rem(45px);
       }
 
       &:hover {
-        color: $texts;
+        color: variables.$texts;
       }
     }
   }
 
   .desc {
-    @include mainFont(300);
-    margin: rem(10px);
-    font-size: rem(16px);
-    line-height: rem(25px);
+    @include mixins.mainFont(300);
+    margin: functions.rem(10px);
+    font-size: functions.rem(16px);
+    line-height: functions.rem(25px);
 
-    @include media(">=sm") {
-      font-size: rem(18px);
+    @include media.media(">=sm") {
+      font-size: functions.rem(18px);
     }
   }
 }

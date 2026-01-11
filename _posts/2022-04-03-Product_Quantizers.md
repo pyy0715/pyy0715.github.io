@@ -2,19 +2,19 @@
 date: 2022-04-03 18:50:28
 layout: post
 title: Product Quantization with Faiss
-subtitle: Research
-# description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+type: concept
 math: true
-image: https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559825145/theme16_o0seet.jpg
-optimized_image: https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559825145/theme16_o0seet.jpg
-category: Machine Learning
+image: |
+  https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559825145/theme16_o0seet.jpg
+optimized_image: |
+  https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559825145/theme16_o0seet.jpg
+category: AI & ML
 tags:
-    - Nearest neighbor search
-    - Product Quantization
-    - Faiss
+  - Nearest neighbor search
+  - Product Quantization
+  - Faiss
 author: pyy0715
 ---
-
 # Product Quantization with Faiss
 
 ## 1. Introduction

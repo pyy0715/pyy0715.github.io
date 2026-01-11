@@ -2,19 +2,19 @@
 date: 2020-06-21 18:39:28
 layout: post
 title: Understanding Metric Learning, Chapter2
-subtitle: Research
-# description: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+type: concept
 math: true
-image: https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559825145/theme16_o0seet.jpg
-optimized_image: https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559825145/theme16_o0seet.jpg
-category: Machine Learning
+image: |
+  https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559825145/theme16_o0seet.jpg
+optimized_image: |
+  https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559825145/theme16_o0seet.jpg
+category: AI & ML
 tags:
-    - Metric Learning
-    - Triplet
-    - Pairwise
+  - Metric Learning
+  - Triplet
+  - Pairwise
 author: pyy0715
 ---
-
 # Understanding Metric Learning, Chapter2
 
 [지난 포스트](https://pyy0715.github.io/Metric_Learning1/)에 이어서 Metric Learning에 관한 2번째 포스트입니다.

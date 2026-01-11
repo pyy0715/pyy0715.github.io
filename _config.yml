@@ -23,13 +23,11 @@ menu:
 email: pushpyy@gmail.com
 disqus_username: pyy0715
 
-
 # Social Media Settings
 # Remove the item if you don't need it
 github_username: pyy0715
 facebook_username: p01034089947
 linkedin_username: young-yeon-park-67086a14b?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B2MdQ%2BaKdSmSWUIvFAnhEjw%3D%3D
-
 
 # Posts Settings
 show_time_bar: true
@@ -37,15 +35,13 @@ show_modal_on_exit: false
 show_modal_on_finish_post: true
 two_columns_layout: false
 
-
 # Advanced Settings
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http:pyy0715.github.io" # the base hostname & protocol for your site
+url: "https://pyy0715.github.io" # the base hostname & protocol for your site
 google_analytics: "G-E021DYP29F"
 language: "en"
 categories_folder: category
 sent_message_url: "/contact/message-sent/"
-
 
 # Build settings
 markdown: kramdown
@@ -78,18 +74,19 @@ plugins:
   - jekyll-feed
 
 # Exclude my node related stuff
-exclude: [
-  'package.json',
-  'package-lock.json',
-  'src',
-  'node_modules',
-  'initpost.sh',
-  'Gemfile',
-  'Gemfile.lock',
-  'gulpfile.js',
-  'README.md',
-  'assets/css/preview.scss'
-]
+exclude:
+  [
+    "package.json",
+    "package-lock.json",
+    "src",
+    "node_modules",
+    "initpost.sh",
+    "Gemfile",
+    "Gemfile.lock",
+    "gulpfile.js",
+    "README.md",
+    "assets/css/preview.scss",
+  ]
 
 # Theme
 version: v3.1.0
