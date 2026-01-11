@@ -27,13 +27,27 @@
 
                 {% include pagination-post.html progressBar=true %}
 
-                <!-- Table of Contents -->
+                <!-- Table of Contents - Notion Style -->
+                {% capture toc_html %}{% include toc.html html=content sanitize=true %}{% endcapture %}
+                {% if toc_html contains '<ul>' %}
                 <div class="toc-wrapper">
-                    <div class="see-also">
-                        <h4>Table of Contents</h4>
-                        {% include toc.html html=content sanitize=true %}
+                    <div class="toc-container">
+                        <div class="toc-header" onclick="toggleTOC()">
+                            <h4 class="toc-title">
+                                <span class="toc-icon">📑</span>
+                                <span>Table of Contents</span>
+                            </h4>
+                            <div class="toc-toggle">
+                                <span class="toggle-text">접기</span>
+                                <span class="toggle-icon">▼</span>
+                            </div>
+                        </div>
+                        <div class="toc-content" id="tocContent">
+                            {{ toc_html }}
+                        </div>
                     </div>
                 </div>
+                {% endif %}
 
                 {{ content }}
 
@@ -166,6 +180,49 @@
             "articleSection": "{{ page.category }}",
             "keywords": [{{ page.tags | join: '","' | append: '"' | prepend: '"' }}]
         }
+        </script>
+
+        <!-- TOC Toggle Script -->
+        <script>
+        function toggleTOC() {
+            const header = document.querySelector('.toc-header');
+            const content = document.getElementById('tocContent');
+            const toggleText = document.querySelector('.toggle-text');
+
+            if (content && header) {
+                const isCollapsed = content.classList.contains('collapsed');
+
+                if (isCollapsed) {
+                    content.classList.remove('collapsed');
+                    header.classList.remove('collapsed');
+                    toggleText.textContent = '접기';
+                } else {
+                    content.classList.add('collapsed');
+                    header.classList.add('collapsed');
+                    toggleText.textContent = '펼치기';
+                }
+            }
+        }
+
+        // Save TOC state to localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const tocContent = document.getElementById('tocContent');
+            if (tocContent) {
+                // Optional: Remember user's preference
+                const savedState = localStorage.getItem('tocState');
+                if (savedState === 'collapsed') {
+                    toggleTOC();
+                }
+
+                // Save state when toggled
+                const originalToggle = window.toggleTOC;
+                window.toggleTOC = function() {
+                    originalToggle();
+                    const isCollapsed = tocContent.classList.contains('collapsed');
+                    localStorage.setItem('tocState', isCollapsed ? 'collapsed' : 'expanded');
+                };
+            }
+        });
         </script>
     </body>
 </html>

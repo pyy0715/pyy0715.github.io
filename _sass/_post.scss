@@ -340,59 +340,212 @@
   }
 }
 
-/* Table of Contents */
+/* Table of Contents - Notion Style */
 
-.see-also {
-  background: #f8f9fa;
-  border-left: 3px solid #2089C4;
-  padding: 15px 20px;
-  margin: 20px 0;
-  border-radius: 4px;
+.toc-wrapper {
+  margin: 40px auto 40px;
+  max-width: rem(800px);
+  padding: 0 rem(20px);
 
-  h4 {
-    margin-top: 0;
-    color: #2089C4;
+  @include media(">=sm") {
+    margin: 50px auto 50px;
+    padding: 0;
+  }
+}
+
+.toc-container {
+  background: #ffffff;
+  border: 2px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.toc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 1px solid #e8e8e8;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: #fafafa;
   }
 
-  ul {
-    list-style: none;
-    margin: 10px 0;
-    padding-left: 0;
+  .toc-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c2c2c;
 
-    li {
-      padding: 5px 0;
+    @include media(">=sm") {
+      font-size: 20px;
+    }
 
-      a {
-        color: #2089C4;
-        font-size: 14px;
-        text-decoration: none;
+    .toc-icon {
+      font-size: 20px;
 
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-
-      ul {
-        padding-left: 20px;
-        margin-top: 5px;
+      @include media(">=sm") {
+        font-size: 22px;
       }
     }
   }
 
-  // 데스크탑: 고정 사이드바
-  @media (min-width: 1200px) {
-    position: sticky;
-    top: 20px;
-    max-height: calc(100vh - 40px);
-    overflow-y: auto;
+  .toc-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #888;
+    transition: color 0.2s ease;
+
+    @include media(">=sm") {
+      font-size: 15px;
+    }
+
+    .toggle-icon {
+      transition: transform 0.3s ease;
+      font-size: 12px;
+    }
+
+    &:hover {
+      color: #2089C4;
+    }
   }
 
-  // 태블릿/모바일: 인라인
-  @media (max-width: 1199px) {
-    position: static;
-    width: 100%;
-    margin: 30px 0;
+  &.collapsed .toggle-icon {
+    transform: rotate(-90deg);
   }
+}
+
+.toc-content {
+  padding: 24px;
+  max-height: 600px;
+  overflow-y: auto;
+  transition: all 0.3s ease;
+
+  &.collapsed {
+    max-height: 0;
+    padding: 0 24px;
+    overflow: hidden;
+  }
+
+  /* Custom scrollbar */
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+
+    &:hover {
+      background: #a8a8a8;
+    }
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      padding: 0;
+      margin: 8px 0;
+      line-height: 1.6;
+
+      a {
+        color: #5a5a5a;
+        font-size: 15px;
+        text-decoration: none;
+        display: block;
+        padding: 6px 0 6px 12px;
+        border-left: 2px solid transparent;
+        transition: all 0.2s ease;
+
+        @include media(">=sm") {
+          font-size: 16px;
+          padding: 8px 0 8px 16px;
+        }
+
+        &:hover {
+          color: #2089C4;
+          border-left-color: #2089C4;
+          background: #f7f9fc;
+          padding-left: 20px;
+
+          @include media(">=sm") {
+            padding-left: 24px;
+          }
+        }
+      }
+
+      // Nested lists (H3, H4, etc.)
+      ul {
+        margin-top: 4px;
+        padding-left: 20px;
+
+        @include media(">=sm") {
+          padding-left: 24px;
+        }
+
+        li {
+          margin: 4px 0;
+
+          a {
+            font-size: 14px;
+            color: #737373;
+            padding: 4px 0 4px 12px;
+
+            @include media(">=sm") {
+              font-size: 15px;
+              padding: 5px 0 5px 16px;
+            }
+
+            &:hover {
+              padding-left: 20px;
+
+              @include media(">=sm") {
+                padding-left: 24px;
+              }
+            }
+          }
+        }
+
+        // Third level nesting
+        ul li a {
+          font-size: 13px;
+          color: #8a8a8a;
+
+          @include media(">=sm") {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Empty state when no TOC */
+.toc-empty {
+  display: none;
 }
 
 
