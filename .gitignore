@@ -47,3 +47,4 @@ yarn.lock
 
 # Drafts
 _drafts/
+.claude/settings.local.json
