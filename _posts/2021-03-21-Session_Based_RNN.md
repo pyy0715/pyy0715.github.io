@@ -4,15 +4,10 @@ layout: post
 title: Session-Based Recommendations with Recurrent Neural Networks 리뷰
 type: paper-review
 math: true
-image: |
-  https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559822138/theme9_v273a9.jpg
-optimized_image: |
-  https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559822138/theme9_v273a9.jpg
 category: AI & ML
 tags:
-  - Recommender System
-  - Paper Review
-  - Session-Based
+  - Recommender Systems
+  - Session-Based Recommendation
   - GRU4Rec
 author: pyy0715
 ---

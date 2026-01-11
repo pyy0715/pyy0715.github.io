@@ -4,14 +4,12 @@ layout: post
 title: HuggingFace Tokenizer Tutorial
 type: tutorial
 math: true
-image: |
-  https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559820489/js-code_n83m7a.jpg
-optimized_image: |
-  https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559820489/js-code_n83m7a.jpg
 category: AI & ML
 tags:
-  - HuggingFace
+  - NLP
   - Tokenizer
+  - BPE
+  - WordPiece
 author: pyy0715
 ---
 # HuggingFace
@@ -772,4 +770,3 @@ for tokenizer in tokenizers:
     
     ByteLevelBPETokenizer
     tokens = ['J', 'o', 'e', 'Ġ', 'w', 'a', 'i', 't', 'e', 'd', 'Ġ', 'f', 'o', 'r', 'Ġ', 't', 'h', 'e', 'Ġ', 'a', 'i', 'r', 'p', 'l', 'a', 'n', 'e', '.']
-

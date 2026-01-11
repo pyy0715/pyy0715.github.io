@@ -4,15 +4,10 @@ layout: post
 title: Albumentation Library 소개
 type: tutorial
 math: true
-image: |
-  https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559822137/theme11_vei7iw.jpg
-optimized_image: |
-  https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559822137/theme11_vei7iw.jpg
 category: AI & ML
 tags:
-  - Albumentation
-  - Augmentation
-  - CNN
+  - Computer Vision
+  - Image Processing
 author: pyy0715
 ---
 # What is Augmentation?

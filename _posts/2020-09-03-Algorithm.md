@@ -4,13 +4,10 @@ layout: post
 title: What is Algorithm?
 type: concept
 math: true
-image: |
-  https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559824575/theme14_gi2ypv.jpg
-optimized_image: |
-  https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559824575/theme14_gi2ypv.jpg
 category: Computer Science
 tags:
   - Algorithm
+  - Complexity
   - Problem Solving
 author: pyy0715
 ---

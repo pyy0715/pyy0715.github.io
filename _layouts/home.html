@@ -75,7 +75,7 @@ paginator.page == 1 %} {% assign show_hero_now = true %} {% endif %} {% endif %}
                     />
                     {% else %}
                     <img
-                        src="https://source.unsplash.com/800x600/?{{ post.category | slugify }},technology"
+                        src="https://picsum.photos/seed/{{ post.slug }}/800/600"
                         alt="{{ post.title }}"
                         width="100%"
                         loading="lazy"

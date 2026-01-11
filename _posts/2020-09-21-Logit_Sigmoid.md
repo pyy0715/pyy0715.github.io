@@ -4,15 +4,13 @@ layout: post
 title: What is Odds, Logit and Sigmoid?
 type: concept
 math: true
-image: |
-  https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559825145/theme16_o0seet.jpg
-optimized_image: |
-  https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559825145/theme16_o0seet.jpg
 category: AI & ML
 tags:
-  - Logit
+  - Logistic Regression
   - Sigmoid Function
-  - Logistic Function
+  - Logit
+  - Activation Function
+  - Classification
 author: pyy0715
 ---
 # Odds, Logit, Sigmoid

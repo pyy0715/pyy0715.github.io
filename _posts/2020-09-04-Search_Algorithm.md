@@ -4,14 +4,11 @@ layout: post
 title: Linear Search & Binary Search
 type: concept
 math: true
-image: |
-  https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559824575/theme14_gi2ypv.jpg
-optimized_image: |
-  https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559824575/theme14_gi2ypv.jpg
 category: Computer Science
 tags:
-  - Linear Search
+  - Algorithm
   - Binary Search
+  - Linear Search
 author: pyy0715
 ---
 이 글은 Edwith에서 제공하는 [모두를 위한 컴퓨터 과학 (CS50 2019)](https://www.edwith.org/boostcourse-cs-050/joinLectures/41307)를 수강하고 정리한 글입니다.

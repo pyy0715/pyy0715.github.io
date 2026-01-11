@@ -4,14 +4,11 @@ layout: post
 title: 메소드와 데코레이터
 type: concept
 math: true
-image: |
-  https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559824575/theme14_gi2ypv.jpg
-optimized_image: |
-  https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559824575/theme14_gi2ypv.jpg
 category: Software Engineering
 tags:
+  - Python
   - Decorator
-  - Method
+  - Design Pattern
 author: pyy0715
 ---
 > **진지한 파이썬** 7장의 내용을 공부하면서 정리한 내용입니다.

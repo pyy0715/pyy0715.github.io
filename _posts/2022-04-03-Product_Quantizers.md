@@ -4,15 +4,12 @@ layout: post
 title: Product Quantization with Faiss
 type: concept
 math: true
-image: |
-  https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559825145/theme16_o0seet.jpg
-optimized_image: |
-  https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559825145/theme16_o0seet.jpg
 category: AI & ML
 tags:
-  - Nearest neighbor search
   - Product Quantization
-  - Faiss
+  - Vector Quantization
+  - Nearest Neighbor Search
+  - FAISS
 author: pyy0715
 ---
 # Product Quantization with Faiss
