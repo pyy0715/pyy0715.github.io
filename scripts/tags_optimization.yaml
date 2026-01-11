@@ -1,0 +1,215 @@
+# Tags Optimization Mapping
+# Format: filename: [new_tags_list]
+
+# AI & ML (17 posts)
+"2019-12-13-Item2Vec.md":
+  - Recommender Systems
+  - Item2Vec
+  - Word2Vec
+  - Embedding
+  - Collaborative Filtering
+
+"2019-12-14-Wide-and-Deep.md":
+  - Recommender Systems
+  - Wide and Deep
+  - Deep Learning
+  - Neural Network
+  - CTR Prediction
+
+"2019-12-15-CRF.md":
+  - NLP
+  - Conditional Random Fields
+  - CRF
+  - Sequence Labeling
+  - Named Entity Recognition
+
+"2020-03-14-Albumentation.md":
+  - Computer Vision
+  - Data Augmentation
+  - Albumentation
+  - Image Processing
+  - PyTorch
+
+"2020-03-25-Neural-Machine-Translation.md":
+  - NLP
+  - Neural Machine Translation
+  - Seq2Seq
+  - Encoder-Decoder
+  - Attention
+
+"2020-04-26-Bert.md":
+  - NLP
+  - BERT
+  - Transformer
+  - Pre-training
+  - Language Model
+  - Attention
+
+"2020-05-24-Metric_Learning1.md":
+  - Metric Learning
+  - Triplet Loss
+  - Pairwise Learning
+  - Similarity Learning
+  - Deep Learning
+
+"2020-06-21-Metric_Learning2.md":
+  - Metric Learning
+  - Triplet Loss
+  - Contrastive Learning
+  - Embedding
+  - Deep Learning
+
+"2020-09-21-Logit_Sigmoid.md":
+  - Logistic Regression
+  - Sigmoid Function
+  - Logit
+  - Activation Function
+  - Classification
+
+"2020-10-09-GPT2.md":
+  - NLP
+  - GPT-2
+  - Transformer
+  - Language Model
+  - Text Generation
+  - Pre-training
+
+"2021-02-09-Tokenizer.md":
+  - NLP
+  - Tokenizer
+  - BPE
+  - WordPiece
+  - HuggingFace
+
+"2021-03-06-Linear_Regression.md":
+  - Linear Regression
+  - Supervised Learning
+  - Statistics
+  - Optimization
+  - Gradient Descent
+
+"2021-03-21-Session_Based_RNN.md":
+  - Recommender Systems
+  - Session-Based Recommendation
+  - GRU4Rec
+  - Recurrent Neural Network
+  - Sequential Modeling
+
+"2021-04-21-VAE_CF.md":
+  - Recommender Systems
+  - Variational Autoencoder
+  - VAE
+  - Collaborative Filtering
+  - Generative Model
+
+"2021-06-07-Audio.md":
+  - Audio Processing
+  - MFCC
+  - Mel Spectrogram
+  - Feature Extraction
+  - Signal Processing
+
+"2022-03-16-ScanNN.md":
+  - Nearest Neighbor Search
+  - ScaNN
+  - Vector Search
+  - Approximate NN
+  - Information Retrieval
+
+"2022-04-03-Product_Quantizers.md":
+  - Product Quantization
+  - Vector Quantization
+  - Nearest Neighbor Search
+  - Compression
+  - FAISS
+
+# DevOps (2 posts)
+"2020-04-13-Ubuntu1.md":
+  - Linux
+  - Ubuntu
+  - System Administration
+  - GPU Driver
+  - Environment Setup
+
+"2020-04-13-Ubuntu2.md":
+  - Linux
+  - Ubuntu
+  - Anaconda
+  - Python
+  - Environment Setup
+
+# Software Engineering (2 posts)
+"2021-04-07-Decorator.md":
+  - Python
+  - Decorator
+  - Design Pattern
+  - OOP
+  - Metaprogramming
+
+"2021-05-27-OOP.md":
+  - Python
+  - OOP
+  - Object Oriented Programming
+  - Class
+  - Inheritance
+
+# Computer Science (5 posts)
+"2020-09-03-Algorithm.md":
+  - Algorithm
+  - Complexity
+  - Big O
+  - Problem Solving
+
+"2020-09-04-Search_Algorithm.md":
+  - Algorithm
+  - Search
+  - Binary Search
+  - Linear Search
+
+"2020-09-07-Bubble_Sort.md":
+  - Algorithm
+  - Sorting
+  - Bubble Sort
+  - Selection Sort
+
+"2022-07-16-tree.md":
+  - Data Structure
+  - Tree
+  - Graph
+  - Binary Tree
+
+"2022-07-18-Heap.md":
+  - Data Structure
+  - Heap
+  - Priority Queue
+  - Binary Heap
+
+# Career & Growth (5 posts)
+"2020-02-27-Geultto4.md":
+  - Writing
+  - Community
+  - Tech Blog
+
+"2022-02-18-Review1.md":
+  - Book Review
+  - Machine Learning
+  - Finance
+  - Quantitative Trading
+
+"2022-04-24-Review2.md":
+  - Book Review
+  - Data Science
+  - Python
+  - Interview
+
+"2022-07-15-Kakao.md":
+  - Career
+  - Interview
+  - Job Search
+  - Kakao
+
+"2022-08-27-Review3.md":
+  - Book Review
+  - Deep Learning
+  - PyTorch
+  - Computer Vision
