@@ -306,14 +306,15 @@
 
   table {
     @include mixins.mainFont(400);
-    font-size: functions.rem(17px);
-    line-height: functions.rem(35px);
-    letter-spacing: 0.025rem;
-    margin: functions.rem(50px) auto;
+    font-size: functions.rem(14px);
+    line-height: functions.rem(22px);
+    letter-spacing: 0.02rem;
+    margin: functions.rem(40px) auto;
     border-collapse: collapse;
 
     @include media.media(">=sm") {
-      font-size: functions.rem(20px);
+      font-size: functions.rem(15px);
+      line-height: functions.rem(24px);
     }
 
     thead {
@@ -323,22 +324,22 @@
     th {
       font-weight: 600;
       border: functions.rem(1px) solid #ccc;
-      padding: functions.rem(5px) functions.rem(10px);
+      padding: functions.rem(6px) functions.rem(10px);
       text-align: left;
 
       @include media.media(">=sm") {
-        border: functions.rem(2px) solid #ccc;
-        padding: functions.rem(10px) functions.rem(20px);
+        border: functions.rem(1px) solid #ccc;
+        padding: functions.rem(8px) functions.rem(12px);
       }
     }
 
     td {
       border: functions.rem(1px) solid #ccc;
-      padding: functions.rem(5px) functions.rem(10px);
+      padding: functions.rem(6px) functions.rem(10px);
 
       @include media.media(">=sm") {
-        border: functions.rem(2px) solid #ccc;
-        padding: functions.rem(10px) functions.rem(20px);
+        border: functions.rem(1px) solid #ccc;
+        padding: functions.rem(8px) functions.rem(12px);
       }
     }
   }

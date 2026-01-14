@@ -3,13 +3,7 @@ date: 2019-12-14 18:39:28
 layout: post
 title: Wide & Deep Learning for Recommender Systems 리뷰
 type: paper-review
-math: true
-image: |
-  https://res.cloudinary.com/dm7h7e8xj/image/upload/v1559822138/theme9_v273a9.jpg
-  
-optimized_image: |
-  https://res.cloudinary.com/dm7h7e8xj/image/upload/c_scale,w_380/v1559822138/theme9_v273a9.jpg
-  
+math: true  
 category: AI & ML
 tags:
   - Recommender Systems
