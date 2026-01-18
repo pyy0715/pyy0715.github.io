@@ -140,15 +140,15 @@ site.linkedin_username | append: '",' %} {% endif %}
       "@type": "WebPage",
       "mainEntity": {
         "@type": "Blog",
-        "name": "{{ site.name }}",
-        "headline": "{{ site.title }}",
-        "description": "{{ site.description }}",
+        "name": {{ site.name | jsonify }},
+        "headline": {{ site.title | jsonify }},
+        "description": {{ site.description | jsonify }},
         "url": "{{ site.url }}{{site.baseurl}}/",
         "inLanguage": "{{ site.language }}",
         "isFamilyFriendly": "true",
         "creator": {
             "@type": "Organization",
-            "name": "{{ site.name }}",
+            "name": {{ site.name | jsonify }},
             "url": "{{ site.url }}{{site.baseurl}}/",
             "sameAs": [
                 {{ social_urls | split: "," | join: "," }}
@@ -162,23 +162,23 @@ site.linkedin_username | append: '",' %} {% endif %}
                 {% assign author = site.authors | where: "name", post.author | first %}
                 {
                     "@type": "BlogPosting",
-                    "name": "{{ post.title }}",
-                    "headline": "{{ post.subtitle }}",
-                    "description": "{{ post.description }}",
-                    "image": "{{ post.image }}",
+                    "name": {{ post.title | jsonify }},
+                    "headline": {{ post.subtitle | jsonify }},
+                    "description": {{ post.description | jsonify }},
+                    "image": {{ post.image | jsonify }},
                     "url": "{{ post.url | prepend: site.baseurl | prepend: site.url }}",
                     "inLanguage": "{{ site.language }}",
-                    "dateCreated": "{{ post.date | date: '%Y-%m-%d/' }}",
-                    "datePublished": "{{ post.date | date: '%Y-%m-%d/' }}",
-                    "dateModified": "{{ post.date | date: '%Y-%m-%d/' }}",
+                    "dateCreated": "{{ post.date | date: '%Y-%m-%d' }}",
+                    "datePublished": "{{ post.date | date: '%Y-%m-%d' }}",
+                    "dateModified": "{{ post.date | date: '%Y-%m-%d' }}",
                     "author": {
                         "@type": "Person",
-                        "name": "{{ author.display_name }}",
+                        "name": {{ author.display_name | jsonify }},
                         "url": "{{ author.url | prepend: site.baseurl | prepend: site.url }}"
                     },
                     "publisher": {
                         "@type": "Organization",
-                        "name": "{{ site.name }}",
+                        "name": {{ site.name | jsonify }},
                         "url": "{{ site.url }}{{site.baseurl}}/",
                         "logo": {
                             "@type": "ImageObject",
