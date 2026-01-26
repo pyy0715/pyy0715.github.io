@@ -17,13 +17,12 @@
     {% endif %}
     <a href="{{ recommendation.url | prepend: site.baseurl }}" class="post-preview">
         <div class="image">
-            {% if recommendation.optimized_image %}
-                <img src="{{ recommendation.optimized_image }}">
-            {% elsif recommendation.image %}
-                <img src="{{ recommendation.image }}">
-            {% else %}
-                <img src="/assets/img/off.jpg">
-            {% endif %}
+            <img
+                src="https://picsum.photos/seed/{{ recommendation.slug | default: recommendation.title | slugify }}/400/240"
+                alt="{{ recommendation.title }}"
+                loading="lazy"
+                decoding="async"
+            >
         </div>
         <h3 class="title">{{ recommendation.title }}</h3>
     </a>

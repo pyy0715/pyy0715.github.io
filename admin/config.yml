@@ -56,17 +56,6 @@ collections:
         name: "description"
         hint: "This will be used across the pages and for search engines."
         widget: "string"
-      - label: "Featured Image"
-        name: "image"
-        widget: "image"
-        allow_multiple: false
-        required: false
-      - label: "Optimized Image"
-        name: "optimized_image"
-        widget: "image"
-        allow_multiple: false
-        required: false
-        hint: "You can set an optimized image version to show on the home page"
       - label: "Category"
         name: "category"
         widget: "relation"
