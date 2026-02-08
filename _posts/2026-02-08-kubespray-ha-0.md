@@ -1013,10 +1013,10 @@ kube_apiserver_endpoint: |-
 
 | Condition | Endpoint | Applied To |
 |----------|----------|------------|
-| loadbalancer_apiserver가 정의된 경우 | https://k8s-api-srv.admin-lb.com:6443 | 모든 노드의 kubelet, kube-proxy, kubectl |
-| loadbalancer_apiserver_localhost가 true이면서 kube_control_plane 그룹에 속하지 않는 경우 (Worker 노드) | https://localhost:6443 | Worker 노드의 nginx-proxy → Control Plane API Server로 전달 |
-| kube_control_plane 그룹에 속하는 경우 (Control Plane 노드) | https://127.0.0.1:6443 | Control Plane 노드의 kubelet (로컬 API Server) |
-| 그 외의 경우 (fallback) | https://192.168.10.11:6443 | 첫 번째 Control Plane 노드로 직접 접속 |
+| loadbalancer_apiserver가 정의된 경우 | https://k8s-api-srv.admin-lb.com:6443 | 모든 노드의 kubelet,<br>kube-proxy, kubectl |
+| loadbalancer_apiserver_localhost가 true이면서<br>kube_control_plane 그룹에 속하지 않는 경우 (Worker 노드) | https://localhost:6443 | Worker 노드의 nginx-proxy →<br>Control Plane API Server로 전달 |
+| kube_control_plane 그룹에 속하는 경우<br>(Control Plane 노드) | https://127.0.0.1:6443 | Control Plane 노드의 kubelet<br>(로컬 API Server) |
+| 그 외의 경우 (fallback) | https://192.168.10.11:6443 | 첫 번째 Control Plane 노드로<br>직접 접속 |
 
 구성을 적용하기 위해 Kubespray Playbook을 실행하면, Control Plane과 Worker Node에서 각각 다른 변경 사항이 발생합니다. 이를 위해서는 3가지 Role이 필요합니다.
 
