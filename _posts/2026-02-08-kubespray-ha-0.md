@@ -980,6 +980,7 @@ k8s-api-srv.admin-lb.com과 192.168.10.10이 포함되어 있으면, 이전 실�
 
 이를 위해 아래 설정을 추가합니다.
 
+{% raw %}
 ```bash
 # false 적용
 cat << EOF >> inventory/mycluster/group_vars/all/all.yml
@@ -993,6 +994,7 @@ EOF
 # roles/kubespray_defaults/defaults/main/main.yml 내 기본값 확인
 loadbalancer_apiserver_localhost: "{{ loadbalancer_apiserver is not defined }}"
 ```
+{% endraw %}
 
 이에 따라 배포 시, kube_apiserver_endpoint 는 아래 로직으로 계산됩니다.
 
