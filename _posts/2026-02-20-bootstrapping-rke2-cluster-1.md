@@ -1,7 +1,7 @@
 ---
 date: 2026-02-20 00:00:00
 layout: post
-title: "Bootstrapping RKE2 Cluster — 1"
+title: "Bootstrapping RKE2 Cluster - 1"
 type: Guide
 math: true
 
@@ -12,6 +12,8 @@ tags:
   - DevOps
 author: pyy0715
 ---
+
+> Cloudnet@K8S-Deploy Week7
 
 ## Lab Environment
 
