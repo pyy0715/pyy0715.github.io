@@ -399,7 +399,7 @@ systemctl restart rke2-server
 
 아래와 같이 Pod들이 모두 재시작 된 것을 확인할 수 있습니다.
 
-![kubectl get pod -n kube-system — sort-by=.metadata.creationTimestamp | tac](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*kcxRiuJ11zcDM7wo7OXUkA.png) *kubectl get pod -n kube-system — sort-by=.metadata.creationTimestamp | tac*
+![kubectl get pod -n kube-system --sort-by=.metadata.creationTimestamp \| tac](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*kcxRiuJ11zcDM7wo7OXUkA.png) *kubectl get pod -n kube-system --sort-by=.metadata.creationTimestamp \| tac*
 
 완료한 후, 에이전트 노드도 업그레이드해야 합니다.
 
@@ -410,7 +410,7 @@ systemctl restart rke2-agent
 
 RKE2환경에서 에이전트 노드의 경우, Pod 형태로 관리되는 시스템 컴포넌트가 사실상 kube-proxy하나이기 때문에 신규로 재기동됩니다.
 
-![kubectl get pod -n kube-system — sort-by=.metadata.creationTimestamp | tac](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*B9ZsH2bbUv9ukA9aWh-IJQ.png) *kubectl get pod -n kube-system — sort-by=.metadata.creationTimestamp | tac*
+![kubectl get pod -n kube-system --sort-by=.metadata.creationTimestamp \| tac](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*B9ZsH2bbUv9ukA9aWh-IJQ.png) *kubectl get pod -n kube-system --sort-by=.metadata.creationTimestamp \| tac*
 
 완료후에는 아래와 같이 정상적으로 업그레이드 된 것을 확인할 수 있습니다.
 
