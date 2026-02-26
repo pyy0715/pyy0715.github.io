@@ -637,6 +637,112 @@
   }
 }
 
+// ============================================
+// Post Collapse/Folding Component
+// (포스트 본문용 접기/펼치기 컴포넌트)
+// TOC와 별도 스코프: .toc-mobile details 와 분리됨
+// ============================================
+
+.post-content details.post-collapse {
+  display: block;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  margin: functions.rem(25px) auto;
+  border: 1px solid #e5e5e5;
+  transition: box-shadow var(--transition-normal);
+  padding: 0;
+  max-width: functions.rem(760px);
+  width: calc(100% - #{functions.rem(40px)});
+
+  &[open] {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+    .post-collapse-icon {
+      transform: rotate(90deg);
+    }
+  }
+
+  > summary.post-collapse-summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    list-style: none;
+    user-select: none;
+    padding: functions.rem(12px) functions.rem(16px);
+    margin: 0;
+    transition: background var(--transition-fast);
+    font-size: functions.rem(15px);
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.02);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--theme-color);
+      outline-offset: -2px;
+    }
+
+    .post-collapse-icon {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      transition: transform var(--transition-normal);
+      color: var(--theme-color);
+    }
+
+    .post-collapse-title {
+      font-size: functions.rem(15px);
+      flex: 1;
+    }
+  }
+
+  .post-collapse-content {
+    padding: functions.rem(16px);
+    border-top: 1px solid #e0e0e0;
+    margin: 0;
+    font-size: functions.rem(14px);
+    line-height: 1.6;
+
+    @include media.media(">=sm") {
+      font-size: functions.rem(15px);
+    }
+
+    > *:first-child { margin-top: 0; }
+    > *:last-child { margin-bottom: 0; }
+
+    // collapse 내부 요소들 간격 조정
+    p, ul, ol {
+      margin: functions.rem(8px) 0;
+    }
+
+    // collapse 내부의 pre는 overflow 허용
+    pre {
+      margin: functions.rem(8px) 0;
+      max-width: 100%;
+      overflow-x: auto;
+      font-size: functions.rem(13px);
+
+      @include media.media(">=sm") {
+        font-size: functions.rem(14px);
+      }
+    }
+  }
+}
+
+// 모션 감소 설정 지원
+@media (prefers-reduced-motion: reduce) {
+  .post-content details.post-collapse,
+  .post-content .post-collapse-icon {
+    transition: none;
+  }
+}
 
 /* Progress bar */
 

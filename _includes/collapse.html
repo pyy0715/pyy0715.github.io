@@ -1,0 +1,27 @@
+{% comment %}
+Collapse/Folding Component
+
+Usage:
+  {% include collapse.html title="제목" %}
+  내용 (마크다운, 코드블록 등)
+  {% include collapse.html end=true %}
+
+Parameters:
+  - title: 제목 (필수, 첫 호출시)
+  - end: 종료 태그 (true 시 닫는 태그만 출력)
+  - open: 기본 펼침 상태 (선택, 기본값 false)
+  - class: 추가 CSS 클래스 (선택)
+{% endcomment %}
+
+{%- if include.end -%}
+</div></details>
+{%- else -%}
+<details class="post-collapse{% if include.class %} {{ include.class }}{% endif %}"{% if include.open %} open{% endif %}>
+<summary class="post-collapse-summary">
+<svg class="post-collapse-icon" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+<path fill="currentColor" d="M6 4l4 4-4 4V4z"/>
+</svg>
+<span class="post-collapse-title">{{ include.title }}</span>
+</summary>
+<div class="post-collapse-content" markdown="block">
+{%- endif -%}
