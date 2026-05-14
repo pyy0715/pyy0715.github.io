@@ -462,4 +462,4 @@ LLM 추론에서 Attention 메커니즘의 메모리 병목은 단일 기법으�
 | **GQA** | KV Cache 크기 | 그룹별 Key-Value 공유 | 품질 유지 + 상당한 메모리 절감 |
 | **FlashAttention** | HBM IO 횟수 | Tiling + Online Softmax | 속도 2~3배 향상, 메모리 $O(N^2) \rightarrow O(N)$ |
 
-다음 글에서는 이 글에서 다루지 않은 **MoE(Mixture of Experts)**를 통한 활성화 파라미터 최적화와, **PagedAttention(vLLM)**을 통한 KV Cache 메모리 관리 최적화를 다루겠습니다. 이 두 기법은 Attention 메커니즘 자체보다는 모델 아키텍처와 서빙 인프라 차원의 최적화에 해당하며, GQA와 FlashAttention과 결합했을 때 대규모 LLM의 효율적인 프로덕션 서빙이 완성됩니다.
+[다음 글](/posts/sparse-computation-memory-management-on-llm-inference/)에서는 이 글에서 다루지 않은 **MoE(Mixture of Experts)**를 통한 활성화 파라미터 최적화와, **PagedAttention(vLLM)**을 통한 KV Cache 메모리 관리 최적화를 다루겠습니다. 이 두 기법은 Attention 메커니즘 자체보다는 모델 아키텍처와 서빙 인프라 차원의 최적화에 해당하며, GQA와 FlashAttention과 결합했을 때 대규모 LLM의 효율적인 프로덕션 서빙이 완성됩니다.
